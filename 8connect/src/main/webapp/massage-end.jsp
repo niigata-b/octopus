@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員エラー画面</title>
+<title>掲示板完了画面</title>
 </head>
 <body>
-<h2>処理に失敗しました</h2>
-<form action="employee-list" method="post">
-<input type ="submit" value="従業員一覧へ戻る">
+<h2>処理が完了しました</h2>
+<form action="message-list" method="post">
+<input type ="submit" value="掲示板へ戻る">
 </form>
 </body>
 </html>
