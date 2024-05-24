@@ -42,7 +42,7 @@ public class EmployeeBean implements Serializable {
 	/**
 	 * 部署名
 	 */
-	private String sectioName;
+	private String sectionName;
 
 	
 	
@@ -125,13 +125,13 @@ public class EmployeeBean implements Serializable {
 		this.hireDate = hireDate;
 	}
 	
-	public String getSectioName() {
-		return sectioName;
+	public String getSectionName() {
+		return sectionName;
 	}
 
 
-	public void setSectioName(String sectioName) {
-		this.sectioName = sectioName;
+	public void setSectionName(String sectionName) {
+		this.sectionName = sectionName;
 	}
 	
 
