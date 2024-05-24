@@ -38,8 +38,16 @@ public class EmployeeBean implements Serializable {
 	 * 入社日
 	 */
 	private String hireDate;
+	
+	/**
+	 * 部署名
+	 */
+	private String sectioName;
 
 	
+	
+
+
 	/** 
 	 * コンストラクタ
 	 */
@@ -115,6 +123,15 @@ public class EmployeeBean implements Serializable {
 
 	public void setHireDate(String hireDate) {
 		this.hireDate = hireDate;
+	}
+	
+	public String getSectioName() {
+		return sectioName;
+	}
+
+
+	public void setSectioName(String sectioName) {
+		this.sectioName = sectioName;
 	}
 	
 
