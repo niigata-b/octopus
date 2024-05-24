@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.MessageDAO;
+import model.entity.MessageBean;
 
 /**
  * Servlet implementation class MessageListServlet
@@ -35,7 +42,43 @@ public class MessageListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		List<MessageBean> messageList = null;
+		
+		//セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+		
+		//セッションオブジェクトから属性値の取得
+		String userId = (String) session.getAttribute("userId");
+				
+		//転送先のurl
+		String url = null;
+		
+		// ログイン認証済みかどうかを確認
+		//LoginServletでセッションスコープ値が入っていない場合はログイン認証されていない
+		if (userId != null) {
+			// 認証済み
+			try {
+				MessageDAO message = new MessageDAO();
+				messageList = message.selectAll();
+				
+				url = "message-list.jsp";
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			// 未認証
+			url = "login.html";
+		}
+
+		// リクエストスコープへの属性の設定
+		request.setAttribute("messageList", messageList);
+
+		// リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
+	
 
 }
