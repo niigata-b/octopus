@@ -2,5 +2,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<%= session.getAttribute("name") %>　さん
+	<body>
+		8connect <%= session.getAttribute("name") %>　さん<br><hr>
+		
+	</body>
+
 </html>

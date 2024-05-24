@@ -39,8 +39,6 @@ public class UserDAO {
 				int roleId = res.getInt("role_id");
 
 				UserBean user = new UserBean();
-				user.setUserId(userId1);
-				user.setPassword(password);
 				user.setCode(code);
 				user.setRoleId(roleId);
 				

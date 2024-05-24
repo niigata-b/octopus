@@ -64,28 +64,34 @@ public class LoginServlet extends HttpServlet {
 		//転送先
 		String url = null;
 		
+		String code = null;
+		
 		// DAOの利用
 		try {
 			if (dao.loginCheck(userId, password)) {
 				// 認証成功
 				url = "menu";
 				
+				// セッションオブジェクトの取得
+				HttpSession session = request.getSession();
+				
 				//DAOを実行してユーザマスタの値をすべて取得
 				userList = dao.selectAll(userId);
 				
+				for (UserBean userValue : userList) {
+					code = userValue.getCode();
+					session.setAttribute("roleId", userValue.getRoleId());
+				}
 				
-				int roleId = user.getRoleId();
 				
 				//従業員コードから名前を取得
 				String name = dao.selectName(code);
 				
-				// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
+				
 
 				// セッションスコープへの属性の設定
 				//ログインが成功しない場合はセッションスコープに値は入らない＝null
 				session.setAttribute("name", name);
-				session.setAttribute("roleId", roleId);
 				session.setAttribute("userId", userId);
 
 			} else {
