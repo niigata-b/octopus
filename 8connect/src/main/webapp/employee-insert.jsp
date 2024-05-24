@@ -26,7 +26,7 @@
 		<input type="submit"value="登録">
 	</form>
 	
-	<form action="Employee-list" method="POST">
+	<form action="employee-list" method="POST">
 	<input type="submit"value="戻る">
 	</form>
 </body>
