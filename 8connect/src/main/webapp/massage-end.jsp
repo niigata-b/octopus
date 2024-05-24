@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<H1>以下の内容で送信しますか?</H1><br>
-
-<H2>送信内容</H2><br>
-
-
+<h2>処理が完了しました</h2>
+<form action="message-list" method="post">
+<input type ="submit" value="掲示板へ戻る">
+</form>
 </body>
 </html>
