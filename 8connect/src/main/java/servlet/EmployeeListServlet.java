@@ -35,7 +35,16 @@ public class EmployeeListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		List<EmployeeBean> employeeList = null;
+		
+		//DAO作成
+		EmployeeDAO dao = new EmployeeDAO();
+		
+		try {
+			//DAOを利用して全従業員を取得
+			employeeList dao.selectAll();
+			
+		}
 	}
 
 }
