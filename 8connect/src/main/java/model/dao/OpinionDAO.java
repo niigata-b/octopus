@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entity.EmployeeBean;
 import model.entity.OpinionBean;
 
 public class OpinionDAO {
@@ -75,10 +74,8 @@ public class OpinionDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public int insert(String code, String ) 
+	public int insert(String code, String opinionText) 
 			throws SQLException, ClassNotFoundException {
-
-		String opinionText;
 
 		String sql = "INSERT INTO t_opinion VALUES(default ,?, ?, default)";
 		
@@ -90,9 +87,7 @@ public class OpinionDAO {
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, code);
-			pstmt.setString(2, name);
-			pstmt.setInt(3, age);
-			pstmt.setString(4, section);
+			pstmt.setString(2, opinionText);
 
 			count = pstmt.executeUpdate();
 
