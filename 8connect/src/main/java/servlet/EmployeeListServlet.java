@@ -44,32 +44,37 @@ public class EmployeeListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = null;
-
-		HttpSession session = request.getSession();
-
-		if(session.getAttribute("userId") != null ) {
-			url = "employee-list.jsp";
-		}else {
-			url = "index.html";
-		}
-
-
+		
 		List<EmployeeBean> employeeList = null;
 
 		//DAO作成
 		EmployeeDAO dao = new EmployeeDAO();
+		
 
-		try {
-			//DAOを利用して全従業員を取得
-			employeeList = dao.selectAll();
+		HttpSession session = request.getSession();
 
-		}catch(SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+		//ログイン認証ができているか判断
+		if(session.getAttribute("userId") != null ) {
+			url = "employee-list.jsp";
+			
+			try {
+				//DAOを利用して全従業員を取得
+				employeeList = dao.selectAll();
+				
+				
+				//リクエストスコープ
+				request.setAttribute("employeeList", employeeList);
+
+
+			}catch(SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			
+		}else {
+			url = "index.html";
 		}
-
-		//リクエストスコープ
-		request.setAttribute("employeeList", employeeList);
-
+		
 		//転送
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

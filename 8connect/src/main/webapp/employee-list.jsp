@@ -16,7 +16,7 @@
 	<h1>従業員一覧</h1>
 	
 	<table border="1">
-		<!-- 見出し -->
+		<!-- テーブル見出し -->
 		<tr>
 			<th>従業員コード</th>
 			<th>名前</th>
@@ -29,7 +29,11 @@
 			for(EmployeeBean employee : employeeList){
 		%>
 		<tr>
-			<td><a href="employee-detail"><%=employee.getCode() %></a></td>
+			<td><form action="employee-detail" method="post">
+					<input type="hidden" name="code" value="<%=employee.getCode() %>">
+					<input type="submit" value="<%=employee.getCode() %>">
+				</form>
+			</td>
 			<td><%=employee.getName() %></td>
 			<td><%=employee.getKanaName() %></td>
 			<td><%=employee.getSectionName() %></td>
@@ -42,9 +46,14 @@
 	
 	
 	<!--登録画面へ-->
+	<% int roleId = (int)(session.getAttribute("roleId")); %>
+	<% if ((roleId == 1) || (roleId == 2) ) { %>
 	<form action="employee-insert" method="post">
 		<input type="submit" value="登録">
 	</form>
+	<%
+		}
+	%>
 	<!--メニュー画面へ-->
 	<form action="menu" method="post">
 		<input type="submit" value="戻る">

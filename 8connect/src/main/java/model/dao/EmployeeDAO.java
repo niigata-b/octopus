@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -42,7 +43,42 @@ public class EmployeeDAO {
 	
 	
 	//従業員詳細（selectDetail）
-	
+	public EmployeeBean select (String code) throws SQLException, ClassNotFoundException{
+		
+		EmployeeBean employee = new EmployeeBean();
+		
+		String sql =( "SELECT code,kana_name,name,section_name,gender,birth_day,hire_date FROM m_employee JOIN m_section ON m_employee.section_code = m_section.section_code  WHERE code = ? ORDER BY code;");
+			
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setString(1, code);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()) {
+				employee.setCode(res.getString("code"));
+				employee.setKanaName(res.getString("kana_name"));
+				employee.setName(res.getString("name"));
+				employee.setSectionName(res.getString("section_name"));
+				employee.setGender(res.getString("gender"));
+				employee.setBirthDay(res.getString("birth_day"));
+				employee.setHireDate(res.getString("hire_date"));
+				
+				
+				/*employee.setCode(code1);
+				employee.setKanaName(kanaName);
+				employee.setName(name);
+				employee.setSectionName(sectionName);
+				employee.setGender(gender);
+				employee.setBirthDay(birthDay);
+				employee.setHireDate(hireDate);
+
+				employeeList.add(employee);*/
+			}
+		}
+		return employee;
+	}
 	//従業員登録（insertnsert）
 	
 	//従業員更新（update）

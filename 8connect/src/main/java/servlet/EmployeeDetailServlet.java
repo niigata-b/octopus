@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.EmployeeDAO;
+import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class EmployeeDetailServlet
@@ -27,7 +34,7 @@ public class EmployeeDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request,response);
 	}
 
 	/**
@@ -35,7 +42,37 @@ public class EmployeeDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String url = null;
+
+		HttpSession session = request.getSession();
+		
+		//スコープからゲットするとき、必ず型キャスト
+		String code = request.getParameter("code");
+		
+		
+
+		if(session.getAttribute("userId") != null ) {
+			url = "employee-detail.jsp";
+			EmployeeDAO dao = new EmployeeDAO();
+			
+			try {
+				EmployeeBean employee = dao.select(code);
+				
+				session.setAttribute("employee", employee);
+				
+			}catch(SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}else {
+			url = "index.html";
+		}
+		
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
+
+
 	}
 
 }
