@@ -4,7 +4,7 @@
 <html>
 	<body>
 		8connect <%= session.getAttribute("name") %>　さん<br>
-		<a href="logout">ログアウト</a>
+		<a href="logout.jsp">ログアウト</a>
 		<hr>
 		
 		

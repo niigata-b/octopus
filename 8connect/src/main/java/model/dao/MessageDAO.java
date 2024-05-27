@@ -25,7 +25,7 @@ public class MessageDAO {
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT message_id, name, title, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code ORDER BY post_datetime;")) {
+				ResultSet res = stmt.executeQuery("SELECT message_id, name, title, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code ORDER BY post_datetime DESC")) {
 
 			// 結果の操作
 			while (res.next()) {

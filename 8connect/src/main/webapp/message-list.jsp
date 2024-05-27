@@ -21,7 +21,7 @@
 		<%=message.getTitle()%>
 		<form action="message-detail" method="POST">
 			<input type="hidden" name="messageId" value="<%=message.getMessageId()%>">
-			<input type="submit" value="詳細表示">
+			<input type="submit" value="もっと見る">
 		</form><br><hr><br>
 		
 	<% } %>
