@@ -48,27 +48,15 @@ public class EmployeeInsertPassServlet extends HttpServlet {
 		//セッションオブジェクトから属性値の取得
 		String userId = (String) session.getAttribute("userId");
 		
-		String code = request.getParameter("code");
-		String name = request.getParameter("name");
-		String kanaName = request.getParameter("kanaName");
-		String sectionCode = request.getParameter("sectionCode");
-		String gender = request.getParameter("gender");
-		String birthDay = request.getParameter("birthDay");
-		String hireDate = request.getParameter("hireDate");
 		
-		EmployeeBean employee = new EmployeeBean();
 		
-		employee.setCode(code);
-		employee.setName(name);
-		employee.setKanaName(kanaName);
-		employee.setSectionCode(sectionCode);
-		employee.setGender(gender);
-		employee.setBirthDay(birthDay);
-		employee.setHireDate(hireDate);
+		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		
+		System.out.println("パス"+ employee.getCode());
 		
 		EmployeeDAO dao = new EmployeeDAO();
 		int count = 0;
-		String url;
+		String url=null;
 		
 		// ログイン認証済みかどうかを確認
 		//LoginServletでセッションスコープ値が入っていない場合はログイン認証されていない
@@ -94,8 +82,6 @@ public class EmployeeInsertPassServlet extends HttpServlet {
 			// 未認証
 			url = "login.html";
 		}
-		
-		request.setAttribute("employee", employee);
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);

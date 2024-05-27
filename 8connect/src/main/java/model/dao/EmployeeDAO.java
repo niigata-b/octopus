@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class EmployeeDAO {
 				String name = res.getString("name");
 				String kanaName = res.getString("kana_name");
 				String sectionName = res.getString("section_name");
-				String hireDate = res.getString("hire_date");
+				Date hireDate = res.getDate("hire_date");
 
 				EmployeeBean employee = new EmployeeBean();
 				employee.setCode(code);
@@ -62,8 +63,8 @@ public class EmployeeDAO {
 				employee.setName(res.getString("name"));
 				employee.setSectionName(res.getString("section_name"));
 				employee.setGender(res.getString("gender"));
-				employee.setBirthDay(res.getString("birth_day"));
-				employee.setHireDate(res.getString("hire_date"));
+				employee.setBirthDay(res.getDate("birth_day"));
+				employee.setHireDate(res.getDate("hire_date"));
 				
 			}
 		}
@@ -74,8 +75,7 @@ public class EmployeeDAO {
 	public int insert(EmployeeBean employee) throws SQLException, ClassNotFoundException {
 		int count = 0; //処理件数
 		// データベースへの接続の取得、PreparedStatementの取得
-		String sql = "INSERT INTO m_employee VALUES(code = ?, name = ?, kana_name = ?, "
-				+"section_code = ?, gender = ?, birth_day = ?, hire_date = ?)";
+		String sql = "INSERT INTO m_employee VALUES(?, ?, ?, ?, ?, ?, ?)";
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
@@ -85,8 +85,8 @@ public class EmployeeDAO {
 					String kanaName = employee.getKanaName();
 					String sectionCode = employee.getSectionCode();
 					String gender = employee.getGender();
-					String birthDay = employee.getBirthDay();
-					String hireDate = employee.getHireDate();
+					Date birthDay = employee.getBirthDay();
+					Date hireDate = employee.getHireDate();
 
 					// プレースホルダへの値の設定
 					pstmt.setString(1, code);
@@ -94,9 +94,9 @@ public class EmployeeDAO {
 					pstmt.setString(3, kanaName);
 					pstmt.setString(4,sectionCode);
 					pstmt.setString(5,gender);
-					pstmt.setString(6,birthDay);
-					pstmt.setString(7,hireDate);
-					
+					pstmt.setDate(6,birthDay);
+					pstmt.setDate(7,hireDate);
+		
 
 					// SQLステートメントの実行
 					count = pstmt.executeUpdate();
@@ -120,8 +120,10 @@ public class EmployeeDAO {
 			String kanaName = employee.getKanaName();
 			String sectionCode = employee.getSectionCode();
 			String gender = employee.getGender();
-			String birthDay = employee.getBirthDay();
-			String hireDate = employee.getHireDate();
+			Date birthDay = employee.getBirthDay();
+			Date hireDate = employee.getHireDate();
+			
+			
 			
 			// プレースホルダへの値の設定
 			pstmt.setString(1, code);
@@ -129,8 +131,8 @@ public class EmployeeDAO {
 			pstmt.setString(3, kanaName);
 			pstmt.setString(4, sectionCode);
 			pstmt.setString(5, gender);
-			pstmt.setString(6, birthDay);
-			pstmt.setString(7, hireDate);
+			pstmt.setDate(6, birthDay);
+			pstmt.setDate(7, hireDate);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();

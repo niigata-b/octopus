@@ -1,6 +1,7 @@
 package model.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class EmployeeBean implements Serializable {
 	
@@ -32,12 +33,12 @@ public class EmployeeBean implements Serializable {
 	/**
 	 * 生年月日
 	 */
-	private String birthDay;
+	private Date birthDay;
 	
 	/**
 	 * 入社日
 	 */
-	private String hireDate;
+	private Date hireDate;
 	
 	/**
 	 * 部署名
@@ -106,22 +107,22 @@ public class EmployeeBean implements Serializable {
 	}
 
 
-	public String getBirthDay() {
+	public Date getBirthDay() {
 		return birthDay;
 	}
 
 
-	public void setBirthDay(String birthDay) {
+	public void setBirthDay(Date birthDay) {
 		this.birthDay = birthDay;
 	}
 
 
-	public String getHireDate() {
+	public Date getHireDate() {
 		return hireDate;
 	}
 
 
-	public void setHireDate(String hireDate) {
+	public void setHireDate(Date hireDate) {
 		this.hireDate = hireDate;
 	}
 	

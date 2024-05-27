@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.entity.EmployeeBean;
 
@@ -45,10 +47,11 @@ public class EmployeeInsertCheckServlet extends HttpServlet {
 		String kanaName = request.getParameter("kanaName");
 		String sectionCode = request.getParameter("sectionCode");
 		String gender = request.getParameter("gender");
-		String birthDay = request.getParameter("birthDay");
-		String hireDate = request.getParameter("hireDate");
+		Date birthDay = Date.valueOf(request.getParameter("birthDay"));
+		Date hireDate = Date.valueOf(request.getParameter("hireDate"));
 		
 		EmployeeBean employee = new EmployeeBean();
+		
 		
 		employee.setCode(code);
 		employee.setName(name);
@@ -58,10 +61,13 @@ public class EmployeeInsertCheckServlet extends HttpServlet {
 		employee.setBirthDay(birthDay);
 		employee.setHireDate(hireDate);
 		
+		//セッションオブジェクトの取得
+		HttpSession session = request.getSession();
 		
-		
-		
-		
+		session.setAttribute("employee", employee);
+
+				
+	
 		RequestDispatcher rd = request.getRequestDispatcher("employee-insert-check.jsp");
 		rd.forward(request, response);
 		
