@@ -31,7 +31,7 @@
 		<input type="submit" value="更新">
 	</form>
 	
-	<form action="employee-delete" method="post">
+	<form action="employee-delete-check" method="post">
 		<input type="submit" value="削除">
 	</form>
 	<% 

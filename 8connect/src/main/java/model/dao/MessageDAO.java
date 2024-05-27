@@ -11,7 +11,7 @@ import java.util.List;
 import model.entity.MessageBean;
 
 public class MessageDAO {
-	
+
 	/**
 	 * すべての掲示板のリストを返します。
 	 * @return 掲示板のリスト
@@ -45,7 +45,7 @@ public class MessageDAO {
 		}
 		return messageList;
 	}
-	
+
 	/**
 	 * 引数で指定したコードの掲示板オブジェクトを返します。
 	 * @return 掲示板オブジェクト
@@ -79,9 +79,9 @@ public class MessageDAO {
 		}
 		return message;
 	}
-	
+
 	public int delete(String messageId) throws ClassNotFoundException, SQLException {
-		
+
 		int cnt = 0; //処理件数
 
 		String sql = "DELETE FROM t_message WHERE message_id = ?";
@@ -89,7 +89,7 @@ public class MessageDAO {
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			// プレースホルダへの値の設定
 			pstmt.setString(1, messageId);
 
@@ -97,7 +97,29 @@ public class MessageDAO {
 			cnt = pstmt.executeUpdate();
 		}
 		return cnt;
-		
+
 	}
 
+	public int post(String code, String title , String messageText) throws ClassNotFoundException, SQLException {
+
+		int cnt = 0; //処理件数
+
+		String sql = "INSERT INTO t_message VALUES(default,?,?,?,default )";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+						
+			// プレースホルダへの値の設定
+			pstmt.setString(1, code);
+			pstmt.setString(2, title);
+			pstmt.setString(3, messageText);
+
+			// SQLステートメントの実行
+			cnt = pstmt.executeUpdate();
+		}
+		return cnt;
+
+	}
 }

@@ -60,6 +60,8 @@ public class EmployeeDetailServlet extends HttpServlet {
 				
 				session.setAttribute("employee", employee);
 				
+				session.setAttribute("code", code);
+				
 			}catch(SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}

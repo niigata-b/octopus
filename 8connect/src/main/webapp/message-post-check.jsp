@@ -1,12 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.entity.MessageBean"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>投稿確認画面</title>
 </head>
 <body>
+	<h2>以下の内容で投稿しますか？</h2>
+
+	タイトル：<%= session.getAttribute("title") %>
+	<br>
+	 投稿内容：<%= session.getAttribute("messageText") %>
+	 <br>
+
+	<form action="message-post-pass" method="POST">
+		<input type="submit" value="確定">
+	</form>
+
+	<form action="message-post" method="POST">
+		<input type="submit" value="戻る">
+	</form>
 
 </body>
 </html>
