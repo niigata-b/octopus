@@ -61,6 +61,7 @@ public class MessageListServlet extends HttpServlet {
 				MessageDAO message = new MessageDAO();
 				messageList = message.selectAll();
 				
+				
 				url = "message-list.jsp";
 				
 			} catch (Exception e) {

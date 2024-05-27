@@ -5,6 +5,11 @@ import java.io.Serializable;
 public class MessageBean implements Serializable {
 	
 	/**
+	 * 掲示板ID
+	 */
+	private int messageId;
+	
+	/**
 	 * 従業員コード
 	 */
 	private String code;
@@ -77,4 +82,14 @@ public class MessageBean implements Serializable {
 	public void setPostDatatime(String postDatetime) {
 		this.postDatetime = postDatetime;
 	}
+	
+	public int getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(int messageId) {
+		this.messageId = messageId;
+	}
+
+
 }

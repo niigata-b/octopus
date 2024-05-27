@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,15 +25,17 @@ public class MessageDAO {
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT name, title, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code ORDER BY post_datetime;")) {
+				ResultSet res = stmt.executeQuery("SELECT message_id, name, title, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code ORDER BY post_datetime;")) {
 
 			// 結果の操作
 			while (res.next()) {
+				int messageId = res.getInt("message_id");		
 				String name = res.getString("name");
 				String title = res.getString("title");
 				String postDatetime = res.getString("post_datetime");
 
 				MessageBean message = new MessageBean();
+				message.setMessageId(messageId);
 				message.setName(name);
 				message.setTitle(title);
 				message.setPostDatatime(postDatetime);
@@ -41,6 +44,60 @@ public class MessageDAO {
 			}
 		}
 		return messageList;
+	}
+	
+	/**
+	 * 引数で指定したコードの掲示板オブジェクトを返します。
+	 * @return 掲示板オブジェクト
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public MessageBean select(String messageId)
+			throws SQLException, ClassNotFoundException {
+
+		MessageBean message = new MessageBean();
+
+		String sql = "SELECT name, message_id, title, message_text, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code WHERE message_id = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1, messageId);
+
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				message.setMessageId(res.getInt("message_id"));
+				message.setName(res.getString("name"));
+				message.setTitle(res.getString("title"));
+				message.setMessageText(res.getString("message_text"));
+				message.setPostDatatime(res.getString("post_datetime"));
+			}
+		}
+		return message;
+	}
+	
+	public int delete(String messageId) throws ClassNotFoundException, SQLException {
+		
+		int cnt = 0; //処理件数
+
+		String sql = "DELETE FROM t_message WHERE message_id = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			// プレースホルダへの値の設定
+			pstmt.setString(1, messageId);
+
+			// SQLステートメントの実行
+			cnt = pstmt.executeUpdate();
+		}
+		return cnt;
+		
 	}
 
 }
