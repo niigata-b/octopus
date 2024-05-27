@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		8connect <%= session.getAttribute("name") %>　さん<br><hr>
+		8connect <%= session.getAttribute("name") %>　さん<br>
+		<a href="logout">ログアウト</a>
+		<hr>
+		
 		
 	</body>
 

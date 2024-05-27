@@ -14,12 +14,15 @@
 	例) ~~制度の見直し、空気清浄機の設置 など<br><hr>
 	<h2>意見内容</h2>
 	
+	
 	<form action="opinion-send-check" method="post">
 		<textarea name="opinionText" cols="80" rows="5"></textarea> <br>
 	<input type ="submit" value="送信">
+	</form>
 	<form action="menu" method="post">
 		<input type ="submit" value="戻る">
 	</form>
+	
 	<hr>
 </body>
 </html>

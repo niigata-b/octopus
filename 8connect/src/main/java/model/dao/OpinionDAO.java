@@ -19,15 +19,18 @@ public class OpinionDAO {
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT * FROM t_opinion")) {
+				ResultSet res = stmt.executeQuery("SELECT name, opinion_text, send_datetime FROM m_employee JOIN t_opinion ON m_employee.code = t_opinion.code ORDER BY send_datetime DESC")) {
 
 			// 結果の操作
 			while (res.next()) {
-				String code = res.getString("code");
-				String opinionText = res.getString("opinionText");
+				String name = res.getString("name");
+				String sendDatetime = res.getString("send_datetime");
+				String opinionText = res.getString("opinion_text");
 
 				OpinionBean opinion = new OpinionBean();
-				opinion.setCode(code);
+				
+				opinion.setName(name);
+				opinion.setSendDatetime(sendDatetime);
 				opinion.setOpinionText(opinionText);
 
 				opinionList.add(opinion);

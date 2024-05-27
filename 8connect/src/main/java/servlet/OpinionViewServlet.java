@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.OpinionDAO;
 import model.entity.OpinionBean;
@@ -46,20 +47,42 @@ public class OpinionViewServlet extends HttpServlet {
 
 		// DAOの生成
 		OpinionDAO dao = new OpinionDAO();
+		
+		//セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+				
+		//セッションオブジェクトから属性値の取得
+		String userId = (String) session.getAttribute("userId");
+						
+		//転送先のurl
+		String url = null;
+				
+		// ログイン認証済みかどうかを確認
+		//LoginServletでセッションスコープ値が入っていない場合はログイン認証されていない
+		if (userId != null) {
+			// 認証済み
+			try {
+				// DAOの利用
+				opinionList = dao.selectAll();
+					
+				url = "opinion-view.jsp";
+					
+			} catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 
-		try {
-			// DAOの利用
-			opinionList = dao.selectAll();
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
+		} else {
+			// 未認証
+			url = "login.html";
 		}
 
 		// リクエストスコープへの属性の設定
 		request.setAttribute("opinionList", opinionList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("opinion-view.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
+		
 	}
 
 }

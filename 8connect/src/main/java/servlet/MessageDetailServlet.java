@@ -19,6 +19,8 @@ import model.entity.MessageBean;
 @WebServlet("/message-detail")
 public class MessageDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,14 +44,18 @@ public class MessageDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8");
-		String messageId = request.getParameter("messageId");
-
 		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
-				
+		request.setCharacterEncoding("UTF-8");
+		
+		if (request.getParameter("messageId") != null) {
+			session.setAttribute("messageId", request.getParameter("messageId"));
+			
+		}
+		
 		//セッションオブジェクトから属性値の取得
 		String userId = (String) session.getAttribute("userId");
+		
 				
 		//転送先のurl
 		String url = null;
@@ -61,17 +67,18 @@ public class MessageDetailServlet extends HttpServlet {
 			try {
 					MessageDAO dao = new MessageDAO();
 					
+					String messageId = (String) session.getAttribute("messageId");
+					
 					// DAOの利用
 					MessageBean message = dao.select(messageId);
 						
 					// セッションスコープへの属性の設定
 					session.setAttribute("message", message);
 					
-					session.setAttribute("messageId", messageId);
-					
 					System.out.println("詳細Servlet：" + message.getPostDatetime()); 
 						
 					url = "message-detail.jsp";
+					
 						
 				} catch (Exception e) {
 					e.printStackTrace();
