@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.OpinionDAO;
 import model.entity.OpinionBean;
@@ -43,21 +42,22 @@ public class OpinionViewServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		
 		List<OpinionBean> opinionList = null;
-		
+
+		// DAOの生成
 		OpinionDAO dao = new OpinionDAO();
-		
+
 		try {
+			// DAOの利用
 			opinionList = dao.selectAll();
-		
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+
+		// リクエストスコープへの属性の設定
 		request.setAttribute("opinionList", opinionList);
-		
+
+		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("opinion-view.jsp");
 		rd.forward(request, response);
 	}

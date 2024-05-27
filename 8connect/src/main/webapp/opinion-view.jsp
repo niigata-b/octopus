@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.entity.OpinionBean,java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%
-		List<OpinionBean> opinionList = (List) request.getAttribute("opinionList");
+		List<OpinionBean> opinionList = (List<OpinionBean>) request.getAttribute("opinionList");
 	%>
 	<table>
 		<tr>
@@ -21,6 +21,12 @@
 		<tr>
 			<td><%=opinion.getCode()%></td>
 			<td><%=opinion.getOpinionText()%></td>
+			<td>
+				<form action="/opinion-view" method="POST">
+					<input type="hidden" name="code" value="<%=opinion.getCode()%>">
+					<input type="text" name="opinionText" value="<%=opinion.getOpinionText()%>">
+					<input type="submit" value="戻る">
+				</form>
 		</tr>
 		<%
 			}

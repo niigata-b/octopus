@@ -65,23 +65,47 @@ public class EmployeeDAO {
 				employee.setBirthDay(res.getString("birth_day"));
 				employee.setHireDate(res.getString("hire_date"));
 				
-				
-				/*employee.setCode(code1);
-				employee.setKanaName(kanaName);
-				employee.setName(name);
-				employee.setSectionName(sectionName);
-				employee.setGender(gender);
-				employee.setBirthDay(birthDay);
-				employee.setHireDate(hireDate);
-
-				employeeList.add(employee);*/
 			}
 		}
 		return employee;
 	}
+	
 	//従業員登録（insertnsert）
 	
+	
 	//従業員更新（update）
+	public int update(EmployeeBean employee) throws SQLException, ClassNotFoundException {
+		int processingNumber = 0; //処理件数
+
+		String sql = "UPDATE m_employee SET code = ?, name = ?, kana_name = ?, section_name = ?, gender = ?, birth_day = ?, hire_date = ?, WHERE code = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// DTOからのデータの取り出し
+			String code = employee.getCode();
+			String name = employee.getName();
+			String kana_name = employee.getKanaName();
+			String section_name = employee.getSectionName();
+			String gender = employee.getGender();
+			String birth_day = employee.getBirthDay();
+			String hire_date = employee.getHireDate();
+			
+			// プレースホルダへの値の設定
+			pstmt.setString(1, code);
+			pstmt.setString(2, name);
+			pstmt.setString(3, kana_name);
+			pstmt.setString(4, section_name);
+			pstmt.setString(5, gender);
+			pstmt.setString(6, birth_day);
+			pstmt.setString(7, hire_date);
+
+			// SQLステートメントの実行
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
+	}
 	
 	//従業員削除（delete）
 	
