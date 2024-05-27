@@ -12,8 +12,8 @@
 	<form action="employee-insert-check" method="POST">
 		従業員コード：<input type="text" name="code"><br> 
 		名前：<input type="text" name="name"><br> 
-		ふりがな：<input type="text"name="kananame"><br> 
-		部署コード：<select name="sectioncode">
+		ふりがな：<input type="text"name="kanaName"><br> 
+		部署コード：<select name="sectionCode">
 		<option value="管理部">管理部</option>
 		<option value="開発部">開発部</option>
 		<option value="営業部">営業部</option>
@@ -21,8 +21,8 @@
 		性別
 		男：<input type="radio"name="gender"value="男">
 		女：<input type="radio"name="gender"value="女"><br> 
-		生年月日：<input type="date"name="birthday"><br>
-		入社日：<input type="date"name="hireday"><br>
+		生年月日：<input type="date"name="birthDay"><br>
+		入社日：<input type="date"name="hireDate"><br>
 		<input type="submit"value="登録">
 	</form>
 	

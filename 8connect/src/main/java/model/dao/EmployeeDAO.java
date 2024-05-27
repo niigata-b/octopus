@@ -71,13 +71,44 @@ public class EmployeeDAO {
 	}
 	
 	//従業員登録（insertnsert）
-	
+	public int insert(EmployeeBean employee) throws SQLException, ClassNotFoundException {
+		int count = 0; //処理件数
+		// データベースへの接続の取得、PreparedStatementの取得
+		String sql = "INSERT INTO m_employee VALUES(code = ?, name = ?, kana_name = ?, "
+				+"section_code = ?, gender = ?, birth_day = ?, hire_date = ?)";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+					// DTOからのデータの取り出し
+					String code = employee.getCode();
+					String name = employee.getName();
+					String kanaName = employee.getKanaName();
+					String sectionCode = employee.getSectionCode();
+					String gender = employee.getGender();
+					String birthDay = employee.getBirthDay();
+					String hireDate = employee.getHireDate();
+
+					// プレースホルダへの値の設定
+					pstmt.setString(1, code);
+					pstmt.setString(2, name);
+					pstmt.setString(3, kanaName);
+					pstmt.setString(4,sectionCode);
+					pstmt.setString(5,gender);
+					pstmt.setString(6,birthDay);
+					pstmt.setString(7,hireDate);
+					
+
+					// SQLステートメントの実行
+					count = pstmt.executeUpdate();
+				}
+		return count;
+	}
 	
 	//従業員更新（update）
 	public int update(EmployeeBean employee) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE m_employee SET code = ?, name = ?, kana_name = ?, section_code = ?, gender = ?, birth_day = ?, hire_date = ?, WHERE code = ?";
+		String sql = "UPDATE m_employee SET code = ?, name = ?, kana_name = ?, section_code = ?, gender = ?, birth_day = ?, hire_date = ? WHERE code = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -86,20 +117,20 @@ public class EmployeeDAO {
 			// DTOからのデータの取り出し
 			String code = employee.getCode();
 			String name = employee.getName();
-			String kana_name = employee.getKanaName();
-			String section_code = employee.getSectionCode();
+			String kanaName = employee.getKanaName();
+			String sectionCode = employee.getSectionCode();
 			String gender = employee.getGender();
-			String birth_day = employee.getBirthDay();
-			String hire_date = employee.getHireDate();
+			String birthDay = employee.getBirthDay();
+			String hireDate = employee.getHireDate();
 			
 			// プレースホルダへの値の設定
 			pstmt.setString(1, code);
 			pstmt.setString(2, name);
-			pstmt.setString(3, kana_name);
-			pstmt.setString(4, section_code);
+			pstmt.setString(3, kanaName);
+			pstmt.setString(4, sectionCode);
 			pstmt.setString(5, gender);
-			pstmt.setString(6, birth_day);
-			pstmt.setString(7, hire_date);
+			pstmt.setString(6, birthDay);
+			pstmt.setString(7, hireDate);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
