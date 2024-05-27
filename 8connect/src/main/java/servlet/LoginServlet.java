@@ -93,6 +93,7 @@ public class LoginServlet extends HttpServlet {
 				//ログインが成功しない場合はセッションスコープに値は入らない＝null
 				session.setAttribute("name", name);
 				session.setAttribute("userId", userId);
+				session.setAttribute("code", code);
 
 			} else {
 				// 認証失敗

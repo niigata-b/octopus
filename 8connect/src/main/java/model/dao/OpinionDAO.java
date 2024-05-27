@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.entity.EmployeeBean;
 import model.entity.OpinionBean;
 
 public class OpinionDAO {
@@ -66,6 +67,38 @@ public class OpinionDAO {
 			}
 		}
 		return opinion;
+	}
+	
+	/**
+	 * 引数で指定したコードの従業員オブジェクトを返します。
+	 * @return 従業員オブジェクト
+	 * @throws SQLException
+	 * @throws ClassNotFoundException
+	 */
+	public int insert(String code, String ) 
+			throws SQLException, ClassNotFoundException {
+
+		String opinionText;
+
+		String sql = "INSERT INTO t_opinion VALUES(default ,?, ?, default)";
+		
+		int count = 0;
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1, code);
+			pstmt.setString(2, name);
+			pstmt.setInt(3, age);
+			pstmt.setString(4, section);
+
+			count = pstmt.executeUpdate();
+
+		}
+		
+		return count;
 	}
 
 }
