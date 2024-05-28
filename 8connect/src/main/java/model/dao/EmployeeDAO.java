@@ -141,7 +141,25 @@ public class EmployeeDAO {
 	}
 	
 	//従業員削除（delete）
-	
+	public int delete(String code) throws ClassNotFoundException, SQLException {
 
+		int cnt = 0; //処理件数
+
+		String sql = "DELETE FROM m_employee WHERE code = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1, code);	
+
+			// SQLステートメントの実行
+			cnt = pstmt.executeUpdate();
+		}
+		return cnt;
+	}
+	
+	
 }
 
