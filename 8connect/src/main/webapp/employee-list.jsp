@@ -8,8 +8,11 @@
 <title>従業員一覧</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<header>
+		<%@ include file="header.jsp" %>
+	</header>
 	
+	<main>
 	<%
 		List<EmployeeBean> employeeList = (List) request.getAttribute("employeeList");
 	%>
@@ -27,7 +30,9 @@
 		<input type="submit" value="検索する" />
 	</form>
 	
-	
+	<form action="employee-insert" method="post">
+		<input type="submit" value="登録">
+	</form>
 	＊従業員コードをクリックすると詳細画面へ飛びます<br>
 	<div class="container">	
 	<table border="1">
@@ -64,9 +69,7 @@
 	<!--登録画面へ-->
 	<% int roleId = (int)(session.getAttribute("roleId")); %>
 	<% if ((roleId == 1) || (roleId == 2) ) { %>
-	<form action="employee-insert" method="post">
-		<input type="submit" value="登録">
-	</form>
+	
 	<%
 		}
 	%>
@@ -76,5 +79,6 @@
 		<input type="submit" value="戻る">
 		</div>
 	</form>
+	</main>
 </body>
 </html>

@@ -7,9 +7,11 @@
 <title>従業員エラー画面</title>
 </head>
 <body>
-<h2>処理に失敗しました</h2>
-<form action="employee-list" method="post">
-<input type ="submit" value="従業員一覧へ戻る">
-</form>
+<main>
+	<h2>処理に失敗しました</h2>
+	<form action="employee-list" method="post">
+	<input type ="submit" value="従業員一覧へ戻る">
+	</form>
+</main>
 </body>
 </html>

@@ -8,24 +8,35 @@
 <title>掲示板詳細画面</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<header>
+		<%@ include file="header.jsp" %>
+	</header>
 	
-	<form action="message-delete-check" method="POST">
-		<input type="submit" value="削除">
-	</form>
-	<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
-	<% session.setAttribute("message", message); %>
+	<main>
 	
-	<%= message.getPostDatetime() %><br>
-	<%= message.getTitle() %><br><br>
-	<%= message.getMessageText() %><br>
-	<%= message.getName() %><br>
-	<% System.out.println("詳細jsp：" + message.getPostDatetime()); %>
-	
-	<form action="message-list" method="POST">
-		<div class="back">
-		<input type="submit" value="戻る">
-		</div>
-	</form>
+	<% String loginCode = (String) session.getAttribute("code");
+	   String detailCode = (String) request.getAttribute("code");
+	   System.out.println(loginCode);
+	   System.out.println(detailCode);%>
+	<% if (loginCode.equals(detailCode)) { %>
+		<form action="message-delete-check" method="POST">
+			<input type="submit" value="削除">
+		</form>
+	<% } %>
+		<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
+		<% session.setAttribute("message", message); %>
+		
+		<%= message.getPostDatetime() %><br>
+		<%= message.getTitle() %><br><br>
+		<%= message.getMessageText() %><br>
+		<%= message.getName() %><br>
+		<% System.out.println("詳細jsp：" + message.getPostDatetime()); %>
+		
+		<form action="message-list" method="POST">
+			<div class="back">
+			<input type="submit" value="戻る">
+			</div>
+		</form>
+	</main>
 </body>
 </html>

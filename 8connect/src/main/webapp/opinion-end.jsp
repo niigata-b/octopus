@@ -7,9 +7,11 @@
 <title>意見箱完了画面</title>
 </head>
 <body>
-<h2>処理が完了しました</h2>
-<form action="menu" method="post">
-<input type ="submit" value="メニューへ戻る">
+	<main>
+		<h2>処理が完了しました</h2>
+		<form action="menu" method="post">
+		<input type ="submit" value="メニューへ戻る">
+	</main>
 </form>
 </body>
 </html>

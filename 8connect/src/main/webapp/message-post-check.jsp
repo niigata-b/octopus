@@ -7,22 +7,23 @@
 <title>投稿確認画面</title>
 </head>
 <body>
-	<h2>以下の内容で投稿しますか？</h2>
-
-	タイトル：<%= session.getAttribute("title") %>
-	<br>
-	 投稿内容：<%= session.getAttribute("messageText") %>
-	 <br>
-
-	<form action="message-post-pass" method="POST">
-		<input type="submit" value="確定">
-	</form>
-
-	<form action="message-post" method="POST">
-		<div class="back">
-		<input type="submit" value="戻る">
-		</div>
-	</form>
-
+	<main>
+		<h2>-- 以下の内容で投稿しますか？ --</h2>
+	
+		タイトル：<%= session.getAttribute("title") %>
+		<br>
+		 投稿内容：<%= session.getAttribute("messageText") %>
+		 <br>
+	
+		<form action="message-post-pass" method="POST">
+			<input type="submit" value="確定">
+		</form>
+	
+		<form action="message-post" method="POST">
+			<div class="back">
+			<input type="submit" value="戻る">
+			</div>
+		</form>
+	</main>
 </body>
 </html>

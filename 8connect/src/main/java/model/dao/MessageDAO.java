@@ -57,7 +57,7 @@ public class MessageDAO {
 
 		MessageBean message = new MessageBean();
 
-		String sql = "SELECT name, message_id, title, message_text, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code WHERE message_id = ?";
+		String sql = "SELECT t_message.code, name, message_id, title, message_text, post_datetime FROM m_employee JOIN t_message ON m_employee.code = t_message.code WHERE message_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -71,6 +71,7 @@ public class MessageDAO {
 			// 結果の操作
 			while (res.next()) {
 				message.setMessageId(res.getInt("message_id"));
+				message.setCode(res.getString("code"));
 				message.setName(res.getString("name"));
 				message.setTitle(res.getString("title"));
 				message.setMessageText(res.getString("message_text"));

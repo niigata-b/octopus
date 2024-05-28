@@ -8,27 +8,30 @@
 <title>意見箱一覧</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
-	<%
-		List<OpinionBean> opinionList = (List) request.getAttribute("opinionList");
-	%>
-	
-	<div class="container">
+	<header>
+		<%@ include file="header.jsp" %>
+	</header>
+	<main>
 		<%
-			for (OpinionBean opinion : opinionList) {
+			List<OpinionBean> opinionList = (List) request.getAttribute("opinionList");
 		%>
-			<%=opinion.getName()%>　<%= opinion.getSendDatetime() %><br>
-			<%=opinion.getOpinionText()%><br><hr>
-		<%
-			}
 		
-		%>
-	</div>
+		<div class="container">
+			<%
+				for (OpinionBean opinion : opinionList) {
+			%>
+				<%=opinion.getName()%>　<%= opinion.getSendDatetime() %><br>
+				<%=opinion.getOpinionText()%><br><hr>
+			<%
+				}
+			
+			%>
+		</div>
 		<form action="menu" method="POST">
 			<div class="back">
 			<input type="submit" value="戻る">
 			</div>
 		</form>
-		
+	</main>	
 </body>
 </html>

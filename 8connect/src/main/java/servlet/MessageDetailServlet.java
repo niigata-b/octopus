@@ -71,9 +71,13 @@ public class MessageDetailServlet extends HttpServlet {
 					
 					// DAOの利用
 					MessageBean message = dao.select(messageId);
+					
+					String code = message.getCode();
+					System.out.println("servlet" + code);
 						
 					// セッションスコープへの属性の設定
 					session.setAttribute("message", message);
+					request.setAttribute("code", code);
 					
 					System.out.println("詳細Servlet：" + message.getPostDatetime()); 
 						
