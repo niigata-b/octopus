@@ -100,12 +100,9 @@ public class LoginServlet extends HttpServlet {
 				url = "login-failure.html";
 			}
 			
-		} catch (ClassNotFoundException e) {
-			// TODO 自動生成された catch ブロック
+		} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			url = "login-failure.html";
 		}
 		
 		//リクエストの転送

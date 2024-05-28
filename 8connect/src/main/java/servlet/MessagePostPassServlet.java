@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -70,8 +71,9 @@ public class MessagePostPassServlet extends HttpServlet {
 
 
 
-			} catch (Exception e) {
+			} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 				e.printStackTrace();
+				url="message-error.jsp";
 			}
 
 		} else {

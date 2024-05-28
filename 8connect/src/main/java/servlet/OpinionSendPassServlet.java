@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -71,8 +72,9 @@ public class OpinionSendPassServlet extends HttpServlet {
 						
 					
 						
-				} catch (Exception e) {
+				} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 					e.printStackTrace();
+					url="opinion-error.jsp";
 				}
 
 			} else {

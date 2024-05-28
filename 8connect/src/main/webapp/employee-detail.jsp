@@ -7,6 +7,7 @@
 <title>従業員詳細</title>
 </head>
 <body>
+	
 	<%@ include file="header.jsp" %>
 	
 	<%

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>意見箱履歴画面</title>
 </head>
 <body>
@@ -15,6 +16,7 @@
 		System.out.println(sw);
 	%>
 	
+	<div class="container">
 	<% if (sw) { %>
 		まだ履歴がありません。
 	<% } else { %>
@@ -29,6 +31,7 @@
 		
 		%>
 	<% } %>
+	</div>
 		<form action="opinion-send" method="POST">
 			<input type="submit" value="戻る">
 		</form>

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>掲示板一覧画面</title>
  
 </head>
@@ -16,6 +17,7 @@
 	<form action="message-post" method="post">
 		<input type="submit" value="＋">
 	</form>
+	<div class="container">
 	<% for (MessageBean message : messageList) { %>
 		<%= message.getName() %>　<%= message.getPostDatetime() %><br>
 		<%=message.getTitle()%>
@@ -25,6 +27,7 @@
 		</form><br><hr><br>
 		
 	<% } %>
+	</div>
 	<form action="menu" method="post">
 		<input type="submit" value="戻る">
 	</form>

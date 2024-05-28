@@ -73,9 +73,9 @@ public class EmployeeInsertPassServlet extends HttpServlet {
 				}
 				
 
-			} catch (ClassNotFoundException | SQLException e) {
+			} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 				e.printStackTrace();
-				
+				url="employee-error.jsp";
 			}
 
 		} else {
