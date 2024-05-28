@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+header{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #C8E2E6;
+}
+
+#account{
+	vertical-align: top;
+	margin-left: 1400px;
+	
+	
+}
+
+#logout{
+	margin-left: 1390px;
+	
+}
+
+#head{
+	float: left;
+	margin-top: -50px;
+	
+}
+
+#logo{
+	font-size: 50px;
+	float: left;
+	margin-top: -50px;
+	vertical-align: top;
+}
+
+#name{
+	margin-left: 850px;
+	font-size: 22px;
+	float: left;
+	vertical-align: top;
+	margin-top: -47px;
+	
+	}
+	
+hr{
+	border-style: none;
+}
