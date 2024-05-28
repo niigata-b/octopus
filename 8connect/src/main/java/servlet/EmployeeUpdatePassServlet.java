@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.EmployeeDAO;
-import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class EmployeeUpdatePassServlet
@@ -44,29 +43,54 @@ public class EmployeeUpdatePassServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// セッションオブジェクトの取得
+		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 
-		// セッションスコープからの属性値の取得
-		EmployeeBean employee = (EmployeeBean) session.getAttribute("employee");
+		//セッションオブジェクトから属性値の取得
+		String userId = (String)session.getAttribute("userId");
 
-		// DAOの生成
-		EmployeeDAO dao = new EmployeeDAO();
+		String code = (String)request.getParameter("code");
 
-		int processingNumber = 0; //処理件数
+		String name = (String)request.getParameter("name");
+		
+		String kanaName = (String)request.getParameter("kanaName");
+		
+		String sectionCode = (String)request.getParameter("sectionCode");
+		
+		String gender = (String)request.getParameter("gender");
+		
+		Date birthDay = Date.valueOf(request.getParameter("birthDay"));
+		
+		Date hireDate = Date.valueOf(request.getParameter("hireDate"));
 
-		try {
-			// DAOの利用
-			processingNumber = dao.update(employee);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		//転送先のurl
+		String url = null;
+
+		// ログイン認証済みかどうかを確認
+		//LoginServletでセッションスコープ値が入っていない場合はログイン認証されていない
+		if (userId != null) {
+			// 認証済み
+			try {
+				EmployeeDAO employee = new EmployeeDAO();
+				int processingNumber = employee.update(code, name, kanaName, sectionCode, gender, birthDay, hireDate);
+
+				if (processingNumber == 0) {
+					url = "employee-error.jsp";
+				} else {
+					url = "employee-end.jsp";
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			// 未認証
+			url = "index.html";
 		}
 
-		// リクエストスコープへの属性の設定
-		request.setAttribute("processingNumber", processingNumber);
-
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("employee-update.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 

@@ -1,42 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.List, java.sql.Date, model.entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>従業員情報-更新確認</title>
+<title>従業員更新確認画面</title>
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("UTF-8");
-	%>
-	・以下の内容を更新してもよろしいですか？<br>
-	
-	<jsp:useBean id="employee" scope="session" class="model.entity.EmployeeBean" />
-	
-	<jsp:setProperty name="employee" property="code" param="code" />
-	<jsp:setProperty name="employee" property="name" param="name" />
-	<jsp:setProperty name="employee" property="kanaName" param="kanaName" />
-	<jsp:setProperty name="employee" property="sectionCode" param="sectionCode" />
-	<jsp:setProperty name="employee" property="gender" param="gender" />
-	<jsp:setProperty name="employee" property="birthDay" param="birthDay" />
-	<jsp:setProperty name="employee" property="hireDate" param="hireDate" />
-	
-	
-	従業員：<jsp:getProperty name="employee" property="code" /><br>
-	名前：<jsp:getProperty name="employee" property="name" /><br>
-	ふりがな：<jsp:getProperty name="employee" property="kanaName" /><br>
-	部署：<jsp:getProperty name="employee" property="sectionCode" /><br>
-	性別：<jsp:getProperty name="employee" property="gender" /><br>
-	生年月日：<jsp:getProperty name="employee" property="birthDay" /><br>
-	入社日：<jsp:getProperty name="employee" property="hireDate" /><br>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
+	<h1>従業員更新確認</h1>
+	<h2>以下の内容を更新してもよろしいですか？</h2>
 
-	<form action="employee-list" method="POST">
+		<%
+			EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
+			String code = (String)request.getAttribute("code");
+			String name = (String)request.getAttribute("name");
+			String kanaName = (String)request.getAttribute("kanaName");
+			String sectionCode = (String)request.getAttribute("sectionCode");
+			String gender = (String)request.getAttribute("gender");
+			Date birthDay = (Date)request.getAttribute("birthDay");
+			Date hireDate = (Date)request.getAttribute("hireDate");	
+		%>
+	
+		従業員コード：<%=code%><br>
+		名前：<%=name%><br>
+		ふりがな: <%=kanaName%><br><br>
+		部署名：<%=sectionCode%><br>
+		性別：<%=gender%><br>
+		生年月日：<%=birthDay%><br>
+		入社日：<%=hireDate%><br>
+	
+		<form action="employee-update-pass" method="post">
+		<input type="hidden" name="code" value="<%=code%>">
 		<input type="submit" value="確定">
 	</form>
-
-	<form action="employee-update" method="POST">
+	
+	<form action="employee-update" method="post">
+	
+		<input type="hidden" name="code" value="<%=code%>">
 		<input type="submit" value="戻る">
 	</form>
+	
 </body>
 </html>

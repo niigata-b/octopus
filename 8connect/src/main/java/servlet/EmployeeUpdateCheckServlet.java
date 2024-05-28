@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import model.entity.EmployeeBean;
 
 /**
  * Servlet implementation class EmployeeUpdateCheckServlet
@@ -30,8 +28,7 @@ public class EmployeeUpdateCheckServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -41,43 +38,37 @@ public class EmployeeUpdateCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		EmployeeBean employee = new EmployeeBean();
-
-		// リクエストオブジェクトのエンコーディング方式の指定
-		request.setCharacterEncoding("UTF-8");
-
-		//値の取り出し
-		String code = request.getParameter("code");
-		String name = request.getParameter("name");
-		String kanaName = request.getParameter("kanaName");
-		String sectionCode = request.getParameter("gender");
-		String gender = request.getParameter("code");
-		String birthDay = request.getParameter("birthDay");
-		String hireDate = request.getParameter("hireDate");
-
-		//employeeに値をセット
-		employee.setCode(code);
-		employee.setName(name);
-		employee.setKanaName(kanaName);
-		employee.setSectionCode(sectionCode);
-		employee.setGender(gender);
-		employee.setBirthDay(birthDay);
-		employee.setHireDate(hireDate);
-
-		//セッションオブジェクトの取得
-		HttpSession session = request.getSession();
-		// リクエストスコープへの属性の設定
-		session.setAttribute("code", code);
-		session.setAttribute("name", name);
-		session.setAttribute("kanaName", kanaName);
-		session.setAttribute("sectionCode", sectionCode);
-		session.setAttribute("gender", gender);
-		session.setAttribute("birthDay", birthDay);
-		session.setAttribute("hireDate", hireDate);
-
-		// リクエストの転送
+		String code = (String)request.getParameter("code");
+		
+		String name = (String)request.getParameter("name");
+		
+		String kanaName = (String)request.getParameter("kanaName");
+		
+		String sectionCode = (String)request.getParameter("sectionCode");
+		
+		String gender = (String)request.getParameter("gender");
+		
+		Date birthDay = Date.valueOf(request.getParameter("birthDay"));
+		
+		Date hireDate = Date.valueOf(request.getParameter("hireDate"));
+		
+		request.setAttribute("code", code);
+		
+		request.setAttribute("name", name);
+		
+		request.setAttribute("kanaName", kanaName);
+		
+		request.setAttribute("sectionCode", sectionCode);
+		
+		request.setAttribute("gender", gender);
+		
+		request.setAttribute("birthDay", birthDay);
+		
+		request.setAttribute("hireDate", hireDate);
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("employee-update-check.jsp");
-		rd.forward(request, response);
+		rd.forward(request,response);
 	}
 
 }
