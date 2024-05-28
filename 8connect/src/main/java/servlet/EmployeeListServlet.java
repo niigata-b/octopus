@@ -43,25 +43,40 @@ public class EmployeeListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		
+		
+		
 		String url = null;
 		
 		List<EmployeeBean> employeeList = null;
 
 		//DAO作成
 		EmployeeDAO dao = new EmployeeDAO();
-		
 
 		HttpSession session = request.getSession();
 
 		//ログイン認証ができているか判断
 		if(session.getAttribute("userId") != null ) {
+			
+			String search = request.getParameter("search");
+			
+			if(search == null) {
+				search = "全て";
+			}
+			
 			url = "employee-list.jsp";
 			
+			
 			try {
+				
+				if(search.equals("全て")) {
 				//DAOを利用して全従業員を取得
-				employeeList = dao.selectAll();
-				
-				
+					employeeList = dao.selectAll();
+				}else {
+					employeeList = dao.selectSection(search);
+					System.out.println(employeeList);
+				}
 				//リクエストスコープ
 				request.setAttribute("employeeList", employeeList);
 

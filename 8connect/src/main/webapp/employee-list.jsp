@@ -15,6 +15,17 @@
 	
 	<h1>従業員一覧</h1>
 	
+	<form action="employee-list" method="POST">
+		<select name="search">
+			<option value="全て">全て</option>
+			<option value="管理部">管理部</option>
+			<option value="開発部">開発部</option>
+			<option value="営業部">営業部</option>
+		</select>
+		<input type="submit" value="検索する" />
+	</form>
+	
+	
 	＊従業員コードをクリックすると詳細画面へ飛びます<br>
 	<table border="1">
 		<!-- テーブル見出し -->
