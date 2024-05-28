@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
+h1 {
+	font-size: 20px;
+}
+
 .container {
- max-height: 500px;
+ max-height: 300px;
  overflow-y: scroll;
 }
 .data, th, td {

@@ -31,7 +31,9 @@
 	
 	<form action="employee-detail" method="post">
 		<input type="hidden" name="code" value="<%=code %>">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 	
 	</form>

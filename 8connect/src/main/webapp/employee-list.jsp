@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>従業員一覧</title>
 </head>
 <body>
@@ -14,6 +15,7 @@
 	%>
 	
 	<h1>従業員一覧</h1>
+
 	
 	<form action="employee-list" method="POST">
 		<select name="search">
@@ -27,6 +29,7 @@
 	
 	
 	＊従業員コードをクリックすると詳細画面へ飛びます<br>
+	<div class="container">	
 	<table border="1">
 		<!-- テーブル見出し -->
 		<tr>
@@ -55,6 +58,7 @@
 			}
 		%>
 	</table>
+	</div>
 	
 	
 	<!--登録画面へ-->
