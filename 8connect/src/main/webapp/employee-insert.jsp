@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>従業員登録画面</title>
 </head>
 <body>
 	<header>
@@ -13,7 +13,7 @@
 	<main>
 		<h1>従業員情報登録</h1>
 		<form action="employee-insert-check" method="POST">
-			</main>従業員コード：<input type="number" min="0" name="code" required="required"><br> 
+			<span id="requisite">*</span>従業員コード：<input type="number" min="0" name="code" required="required"><br> 
 			<span id="requisite">*</span>名前：<input type="text" name="name" required="required" 
 			 	pattern="[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFF9F\u4E00-\u9FFF]*" title="日本語のみ入力してください"><br> 
 			ふりがな：<input type="text"name="kanaName" 
