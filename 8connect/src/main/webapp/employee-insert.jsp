@@ -13,7 +13,7 @@
 	<main>
 		<h1>従業員情報登録</h1>
 		<form action="employee-insert-check" method="POST">
-			</main>従業員コード：<input type="number" name="code" required="required"><br> 
+			</main>従業員コード：<input type="number" min="0" name="code" required="required"><br> 
 			<span id="requisite">*</span>名前：<input type="text" name="name" required="required"><br> 
 			ふりがな：<input type="text"name="kanaName"><br> 
 			<span id="requisite">*</span>部署コード：<select name="sectionCode">
