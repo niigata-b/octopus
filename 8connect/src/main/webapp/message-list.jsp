@@ -29,7 +29,9 @@
 	<% } %>
 	</div>
 	<form action="menu" method="post">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 	
 </body>

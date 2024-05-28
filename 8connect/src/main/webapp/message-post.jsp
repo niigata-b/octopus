@@ -20,7 +20,9 @@
 	</form>
 	
 	<form action="message-list" method="post">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 </body>
 </html>

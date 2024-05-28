@@ -20,8 +20,10 @@
 入社日：<%=request.getParameter("hireDate") %><br>
 <input type="submit"value="確定">
 </form>
-<form action="employee-insert" method="POST">
-	<input type="submit"value="戻る">
+	<form action="employee-insert" method="POST">
+		<div class="back">
+		<input type="submit" value="戻る">
+		</div>
 	</form>
 
 </body>

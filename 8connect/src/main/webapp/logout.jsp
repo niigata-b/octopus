@@ -9,7 +9,9 @@
 <body>
 <h1><%= session.getAttribute("name") %>さんログアウトしますか?</h1>
 <form action="menu" method="post">
-<input type ="submit" value="戻る">
+	<div class="back">
+		<input type="submit" value="戻る">
+	</div>
 </form>
 <form action="logout" method="post">
 <input type ="submit" value="ログアウト">

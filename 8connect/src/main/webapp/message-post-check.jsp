@@ -19,7 +19,9 @@
 	</form>
 
 	<form action="message-post" method="POST">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 
 </body>

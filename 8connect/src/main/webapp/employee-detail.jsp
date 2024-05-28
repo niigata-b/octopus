@@ -44,7 +44,9 @@
 	%>
 	<!--メニュー画面へ-->
 	<form action="employee-list" method="post">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 </body>
 </html>

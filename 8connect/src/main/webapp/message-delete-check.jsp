@@ -23,8 +23,9 @@
 	<% System.out.println("削除jsp：" + message.getPostDatetime()); %>
 	
 	<form action="message-detail" method="POST">
-		
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 </body>
 </html>

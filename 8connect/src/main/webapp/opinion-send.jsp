@@ -22,7 +22,9 @@
 	<input type ="submit" value="送信">
 	</form>
 	<form action="menu" method="post">
-		<input type ="submit" value="戻る">
+		<div class="back">
+		<input type="submit" value="戻る">
+		</div>
 	</form>
 	<form action="opinion-list" method="post">
 		<input type ="submit" value="今までの履歴">

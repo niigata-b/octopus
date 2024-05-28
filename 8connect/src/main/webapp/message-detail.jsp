@@ -23,7 +23,9 @@
 	<% System.out.println("詳細jsp：" + message.getPostDatetime()); %>
 	
 	<form action="message-list" method="POST">
+		<div class="back">
 		<input type="submit" value="戻る">
+		</div>
 	</form>
 </body>
 </html>

@@ -27,7 +27,9 @@
 	</form>
 	
 	<form action="employee-list" method="POST">
-	<input type="submit"value="戻る">
+		<div class="back">
+		<input type="submit" value="戻る">
+		</div>
 	</form>
 </body>
 </html>
