@@ -1,0 +1,99 @@
+package servlet;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.OpinionDAO;
+import model.entity.OpinionBean;
+
+/**
+ * Servlet implementation class OpinionListServlet
+ */
+@WebServlet("/opinion-list")
+public class OpinionListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public OpinionListServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		List<OpinionBean> opinionList = null;
+
+		// DAOの生成
+		OpinionDAO dao = new OpinionDAO();
+		
+		//セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+				
+		//セッションオブジェクトから属性値の取得
+		String userId = (String) session.getAttribute("userId");
+		String code = (String) session.getAttribute("code");
+						
+		//転送先のurl
+		String url = null;
+		
+		
+				
+		// ログイン認証済みかどうかを確認
+		//LoginServletでセッションスコープ値が入っていない場合はログイン認証されていない
+		if (userId != null) {
+			// 認証済み
+			try {
+				// DAOの利用
+				opinionList = dao.select(code);
+				
+				if (opinionList.size() == 0) {
+					boolean sw = true;
+					request.setAttribute("sw", sw);
+				} else {
+					boolean sw = false;
+					request.setAttribute("sw", sw);
+				}
+				
+					
+				url = "opinion-list.jsp";
+					
+			} catch (SQLException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			// 未認証
+			url = "login.html";
+		}
+
+		// リクエストスコープへの属性の設定
+		request.setAttribute("opinionList", opinionList);
+
+		// リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
+	}
+
+}

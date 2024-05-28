@@ -18,7 +18,7 @@
 	
 	
 	<form action="opinion-send-check" method="post">
-		<textarea name="opinionText" cols="80" rows="5"></textarea> <br>
+		<textarea name="opinionText" cols="80" rows="5" required="required"></textarea> <br>
 	<input type ="submit" value="送信">
 	</form>
 	<form action="menu" method="post">

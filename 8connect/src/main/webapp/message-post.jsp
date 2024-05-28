@@ -11,10 +11,10 @@
 	
 	<form action="message-post-check" method="post">
 		タイトル<br>
-		<input type="text" size="50" name="title"><br>
+		<input type="text" size="50" name="title" required="required"><br>
 
 		投稿内容<br>
-		<textarea name="messageText" cols="50" rows="4"></textarea><br>
+		<textarea name="messageText" cols="50" rows="4" required="required"></textarea><br>
 		
 		<input type="submit" value="投稿"><br>		
 	</form>
