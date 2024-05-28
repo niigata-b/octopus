@@ -48,7 +48,9 @@ public class EmployeeDeletePassServlet extends HttpServlet {
 		//セッションオブジェクトから属性値の取得
 		String userId = (String) session.getAttribute("userId");
 		
-		String code = (String)session.getAttribute("code");
+		String code = (String)request.getParameter("code");
+		
+		System.out.println("deletepass" + code);
 
 		//転送先のurl
 		String url = null;

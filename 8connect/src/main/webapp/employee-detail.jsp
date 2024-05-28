@@ -11,6 +11,8 @@
 	
 	<%
 		EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
+		String code = (String) request.getAttribute("code");
+		System.out.println("detaijsp" + code);
 	%>
 	
 	<h1>従業員詳細</h1>
@@ -28,10 +30,12 @@
 	<% int roleId = (int)(session.getAttribute("roleId")); %>
 	<% if ((roleId == 1) || (roleId == 2) ) { %>
 	<form action="employee-update" method="post">
+		<input type="hidden" name="code" value="<%=code %>">
 		<input type="submit" value="更新">
 	</form>
 	
 	<form action="empoloyee-delete-check" method="post">
+		<input type="hidden" name="code" value="<%=code %>">
 		<input type="submit" value="削除">
 	</form>
 	<% 

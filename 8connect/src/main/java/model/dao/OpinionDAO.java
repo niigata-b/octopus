@@ -38,6 +38,37 @@ public class OpinionDAO {
 		}
 		return opinionList;
 	}
+	
+	public List<OpinionBean> select(String code) throws SQLException, ClassNotFoundException {
+
+		List<OpinionBean> opinionList = new ArrayList<OpinionBean>();
+		
+		String sql = "SELECT opinion_text, send_datetime FROM t_opinion WHERE code = ? ORDER BY send_datetime DESC";
+
+		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			// プレースホルダへの値の設定
+			pstmt.setString(1, code);
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			while (res.next()) {
+				String sendDatetime = res.getString("send_datetime");
+				String opinionText = res.getString("opinion_text");
+
+				OpinionBean opinion = new OpinionBean();
+				
+				opinion.setSendDatetime(sendDatetime);
+				opinion.setOpinionText(opinionText);
+
+				opinionList.add(opinion);
+			}
+		}
+		return opinionList;
+	}
 
 	/**
 	 * 引数で指定したコードの従業員オブジェクトを返します。

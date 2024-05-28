@@ -49,6 +49,8 @@ public class EmployeeDetailServlet extends HttpServlet {
 		//スコープからゲットするとき、必ず型キャスト
 		String code = request.getParameter("code");
 		
+		System.out.println("datail" + code);
+		
 		
 
 		if(session.getAttribute("userId") != null ) {
@@ -60,7 +62,7 @@ public class EmployeeDetailServlet extends HttpServlet {
 				
 				session.setAttribute("employee", employee);
 				
-				session.setAttribute("code", code);
+				request.setAttribute("code", code);
 				
 			}catch(SQLException | ClassNotFoundException e) {
 				e.printStackTrace();

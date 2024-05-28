@@ -37,6 +37,12 @@ public class EmployeeDeleteCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String code = (String) request.getParameter("code");
+		request.setAttribute("code", code);
+		
+		System.out.println("deletecheck" + code);
+		
 		RequestDispatcher rd = request.getRequestDispatcher("employee-delete-check.jsp");
 		rd.forward(request,response);
 		
