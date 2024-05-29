@@ -268,6 +268,29 @@ select{
 }
 
 .field {
+	border: solid;
+	width: 50%;
 	font-size: 30px;
 	margin-top: 30px;
+	margin-left: 370px;
+}
+
+.syatyou-button {
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 50px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 140px 60px;   /* 余白       */
+  background    : rgb(247, 55, 55);     /* 背景色     */
+  color         : white;    /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid rgb(247, 55, 55);    /* 枠の指定 */
+}
+
+.syatyou-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : rgb(247, 55, 55);     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }
