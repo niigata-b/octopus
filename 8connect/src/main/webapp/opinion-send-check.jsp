@@ -22,8 +22,8 @@
 		
 	
 		<form action="opinion-send-pass" method="POST">
-			<div class="decision">
-				<input type="submit" value="確定" class="nomal-button">
+			<div class="normal">
+				<input type="submit" value="確定" class="normal-button">
 			</div>
 		</form>
 	
