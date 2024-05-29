@@ -18,7 +18,9 @@
 		例) ~~制度の見直し、空気清浄機の設置 など<br><hr>
 		<h2>意見内容</h2>
 		
+		<span class="caption">*400文字以内</span>
 		<form action="opinion-send-check" method="post">
+			
 			<textarea name="opinionText" cols="80" rows="5" required="required"></textarea> <br>
 		<input type ="submit" value="送信">
 		</form>
