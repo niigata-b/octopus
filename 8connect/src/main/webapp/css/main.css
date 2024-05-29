@@ -8,7 +8,9 @@ body{
 }
 
 h1 {
-	font-size: 20px;
+	font-size: 40px;
+	margin-bottom: 0px;
+	margin-top: 10px;
 }
 
 .container {
@@ -27,5 +29,15 @@ table{
  margin-left: auto;
  margin-right: auto;
  width: 1000px;
+ background-color: white;
+}
+
+#detailtext{
+	color: red;
+	margin-right: 625px;
+}
+
+th{
+	background-color: #C8E2E6;
 }
 

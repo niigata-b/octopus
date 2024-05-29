@@ -29,11 +29,16 @@
 		</select>
 		<input type="submit" value="検索する" />
 	</form>
-	
+	<!--登録画面へ-->
+	<% int roleId = (int)(session.getAttribute("roleId")); %>
+	<% if ((roleId == 1) || (roleId == 2) ) { %>
 	<form action="employee-insert" method="post">
 		<input type="submit" value="登録">
 	</form>
-	＊従業員コードをクリックすると詳細画面へ飛びます<br>
+	<%
+		}
+	%>
+	<span id="detailtext">＊従業員コードをクリックすると詳細画面へ飛びます<br></span>
 	<div class="container">	
 	<table border="1">
 		<!-- テーブル見出し -->
@@ -66,13 +71,7 @@
 	</div>
 	
 	
-	<!--登録画面へ-->
-	<% int roleId = (int)(session.getAttribute("roleId")); %>
-	<% if ((roleId == 1) || (roleId == 2) ) { %>
 	
-	<%
-		}
-	%>
 	<!--メニュー画面へ-->
 	<form action="menu" method="post">
 		<div class="back">
