@@ -41,7 +41,9 @@
 		<input type="hidden" name=gender value="<%=gender%>">
 		<input type="hidden" name="birthDay" value="<%=birthDay%>">
 		<input type="hidden" name="hireDate" value="<%=hireDate%>">
-		<input type="submit" value="確定">
+		<div class="decision">
+			<input type="submit" value="確定" class="nomal-button">
+		</div>
 	</form>
 	
 	<form action="employee-update" method="post">

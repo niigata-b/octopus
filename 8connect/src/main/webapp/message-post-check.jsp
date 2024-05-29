@@ -17,7 +17,9 @@
 		 <br>
 	
 		<form action="message-post-pass" method="POST">
-			<input type="submit" value="確定">
+			<div class="decision">
+				<input type="submit" value="確定" class="nomal-button">
+			</div>
 		</form>
 	
 		<form action="message-post" method="POST">

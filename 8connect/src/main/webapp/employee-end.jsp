@@ -12,8 +12,8 @@
 	<%@ include file="header.jsp"%>
 	<h2>処理が完了しました</h2>
 	<form action="employee-list" method="post">
-	<input type ="submit" value="従業員一覧へ戻る">
+		<input type ="submit" value="従業員一覧へ戻る">
+	</form>
 </main>
-</form>
 </body>
 </html>
