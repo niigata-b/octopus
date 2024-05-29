@@ -19,26 +19,31 @@
 	
 	<h1>従業員一覧</h1>
 
-	
-	<form action="employee-list" method="POST">
-		<select name="search">
-			<option value="全て">全て</option>
-			<option value="管理部">管理部</option>
-			<option value="開発部">開発部</option>
-			<option value="営業部">営業部</option>
-		</select>
-		<input type="submit" value="検索する" />
-	</form>
+	<div id="search">
+		<form action="employee-list" method="POST">
+			<span id="select">
+			<select name="search">
+				<option value="全て">全て</option>
+				<option value="管理部">管理部</option>
+				<option value="開発部">開発部</option>
+				<option value="営業部">営業部</option>
+			</select>
+			</span>
+			<span id="search-btn"><input type="submit" value="検索" /></span>
+		</form>
+	</div>
 	<!--登録画面へ-->
 	<% int roleId = (int)(session.getAttribute("roleId")); %>
 	<% if ((roleId == 1) || (roleId == 2) ) { %>
+	<span id="insert">
 	<form action="employee-insert" method="post">
 		<input type="submit" value="登録">
 	</form>
+	</span>
 	<%
 		}
 	%>
-	<span id="detailtext">＊従業員コードをクリックすると詳細画面へ飛びます<br></span>
+	<span class="caption">＊従業員コードをクリックすると詳細画面へ飛びます<br></span>
 	<div class="container">	
 	<table border="1">
 		<!-- テーブル見出し -->
@@ -75,7 +80,7 @@
 	<!--メニュー画面へ-->
 	<form action="menu" method="post">
 		<div class="back">
-		<input type="submit" value="戻る">
+		<input type="submit" value="戻る" class="back-button">
 		</div>
 	</form>
 	</main>
