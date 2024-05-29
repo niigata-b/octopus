@@ -36,7 +36,7 @@
 		<% if (roleId == 1) { %>
 		<form action="opinion-view" method="post">
 			<div class="opinion-btn">
-				<input type="submit" value="意見箱閲覧" class="menu-button">
+				<input type="submit" value="意見箱閲覧" class="syatyou-button">
 			</div>
 		</form>
 		<% } %>
