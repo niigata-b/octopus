@@ -11,27 +11,29 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-	<h1>従業員更新確認</h1>
-	<h2>以下の内容を更新してもよろしいですか？</h2>
-
-		<%
-			EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
-			String code = (String)request.getAttribute("code");
-			String name = (String)request.getAttribute("name");
-			String kanaName = (String)request.getAttribute("kanaName");
-			String sectionCode = (String)request.getAttribute("sectionCode");
-			String gender = (String)request.getAttribute("gender");
-			Date birthDay = (Date)request.getAttribute("birthDay");
-			Date hireDate = (Date)request.getAttribute("hireDate");	
-		%>
+	<div class="check">
+		<h1>従業員更新確認</h1>
+		<h2>-- 以下の内容を更新してもよろしいですか？ --</h2>
 	
-		従業員コード：<%=code%><br>
-		名前：<%=name%><br>
-		ふりがな: <%=kanaName%><br>
-		部署：<%=sectionCode%><br>
-		性別：<%=gender%><br>
-		生年月日：<%=birthDay%><br>
-		入社日：<%=hireDate%><br>
+			<%
+				EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
+				String code = (String)request.getAttribute("code");
+				String name = (String)request.getAttribute("name");
+				String kanaName = (String)request.getAttribute("kanaName");
+				String sectionCode = (String)request.getAttribute("sectionCode");
+				String gender = (String)request.getAttribute("gender");
+				Date birthDay = (Date)request.getAttribute("birthDay");
+				Date hireDate = (Date)request.getAttribute("hireDate");	
+			%>
+		
+			従業員コード：<%=code%><br>
+			名前：<%=name%><br>
+			ふりがな: <%=kanaName%><br>
+			部署：<%=sectionCode%><br>
+			性別：<%=gender%><br>
+			生年月日：<%=birthDay%><br>
+			入社日：<%=hireDate%><br>
+		<div class="check">
 	
 		<form action="employee-update-pass" method="post">
 		<input type="hidden" name="code" value="<%=code%>">

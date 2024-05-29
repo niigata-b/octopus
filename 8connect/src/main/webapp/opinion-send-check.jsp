@@ -9,18 +9,16 @@
 <title>意見箱送信確認画面</title>
 </head>
 <body>
-	<header>
-		<%@ include file="header.jsp" %>
-	</header>
 	<main>
 		<% OpinionBean opinion = new OpinionBean(); %>
+		<div class="check">
 		<h2>-- 以下の内容で送信しますか？--</h2>
 		
 		従業員コード：<%= session.getAttribute("code") %><br>
 		意見内容：<%= session.getAttribute("opinionText") %><br>
 		
 		
-	
+		</div>
 		<form action="opinion-send-pass" method="POST">
 			<div class="normal">
 				<input type="submit" value="確定" class="normal-button">

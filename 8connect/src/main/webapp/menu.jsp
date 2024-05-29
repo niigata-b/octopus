@@ -12,25 +12,32 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<main>
-		<h1>メニュー</h1>
+		<h1>- menu -</h1>
 		<form action="employee-list" method="post">
-		
-			<input type="submit" value="従業員管理" class="menu-button">
+			<div id="employee-btn">
+				<input type="submit" value="従業員管理" class="menu-button">
+			</div>
 		</form>
 		<form action="message-list" method="post">
-			<input type="submit" value="掲示板">
+			<div id="message-btn">
+				<input type="submit" value="　掲示板　" class="menu-button">
+			</div>
 		</form>
 		
 		<% int roleId = (int)(session.getAttribute("roleId")); %>
 		<% if (roleId != 1) { %>
 			<form action="opinion-send" method="post">
-				<input type="submit" value="意見箱送信" class="menu-button">
+				<div class="opinion-btn">
+					<input type="submit" value="意見箱送信" class="menu-button">
+				</div>
 			</form>
 		<% } %>
 		
 		<% if (roleId == 1) { %>
 		<form action="opinion-view" method="post">
-			<input type="submit" value="意見箱閲覧" class="menu-button">
+			<div class="opinion-btn">
+				<input type="submit" value="意見箱閲覧" class="menu-button">
+			</div>
 		</form>
 		<% } %>
 	</main>

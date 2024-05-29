@@ -9,22 +9,25 @@
 </head>
 <body>
 <main>
-	<h1>従業員削除確認</h1>
-	<h2>-- 以下の内容を削除してもよろしいですか? --</h2>
-		
-		<%
-			EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
-			String code = (String) request.getAttribute("code");
-			System.out.println("deletecheckjsp" + code);
+
+	<div class="check">
+		<h1>従業員削除確認</h1>
+		<h2>-- 以下の内容を削除してもよろしいですか? --</h2>
 			
-		%>
-		従業員コード：<%=employee.getCode() %><br>
-		名前：<%=employee.getName() %><br>
-		ふりがな: <%=employee.getKanaName() %><br><br>
-		部署名：<%=employee.getSectionName() %><br>
-		性別：<%=employee.getGender() %><br>
-		生年月日：<%=employee.getBirthDay() %><br>
-		入社日：<%=employee.getHireDate() %><br>
+			<%
+				EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
+				String code = (String) request.getAttribute("code");
+				System.out.println("deletecheckjsp" + code);
+				
+			%>
+			従業員コード：<%=employee.getCode() %><br>
+			名前：<%=employee.getName() %><br>
+			ふりがな: <%=employee.getKanaName() %><br><br>
+			部署名：<%=employee.getSectionName() %><br>
+			性別：<%=employee.getGender() %><br>
+			生年月日：<%=employee.getBirthDay() %><br>
+			入社日：<%=employee.getHireDate() %><br>
+			</div>	
 		
 		<form action="employee-delete-pass" method="post">
 			<input type="hidden" name="code" value="<%=code %>">

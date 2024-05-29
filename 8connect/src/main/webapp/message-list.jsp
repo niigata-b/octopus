@@ -15,18 +15,26 @@
 	</header>
 	<main>
 		<% List<MessageBean> messageList = (List) request.getAttribute("messageList"); %>
-		<h1>掲示板一覧</h1>
+		<h1>掲示板一覧</h1><br>
 		<form action="message-post" method="post">
-			<input type="submit" value="＋">
+			<div id="post-btn">
+				<input type="submit" value="＋" class="post-button">
+			</div>
 		</form>
 		<div class="container">
 		<% for (MessageBean message : messageList) { %>
+		<div id="message-date">
 			<%= message.getName() %>　<%= message.getPostDatetime() %><br>
+		</div>
+		<div id="message-title">
 			<%=message.getTitle()%>
+		</div>
 			<form action="message-detail" method="POST">
 				<input type="hidden" name="messageId" value="<%=message.getMessageId()%>">
-				<input type="submit" value="もっと見る">
-			</form><br><hr><br>
+				<div id="view">
+					<input type="submit" value="もっと見る">
+				</div>
+			</form><br><hr class="messagehr"><br>
 			
 		<% } %>
 		</div>

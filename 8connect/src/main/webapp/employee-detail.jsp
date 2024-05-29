@@ -19,17 +19,18 @@
 			System.out.println("detaijsp" + code);
 		%>
 		
-		<h1>従業員詳細</h1>
-		
-		従業員コード：<%=employee.getCode() %><br>
-					  <%=employee.getKanaName() %><br>
-		名前：<%=employee.getName() %><br>
-		部署名：<%=employee.getSectionName() %><br>
-		性別：<%=employee.getGender() %><br>
-		生年月日：<%=employee.getBirthDay() %><br>
-		入社日：<%=employee.getHireDate() %><br>
-		
-		
+		<div class="field">
+			<h1>従業員詳細</h1>
+			
+			従業員コード：<%=employee.getCode() %><br>
+						  <%=employee.getKanaName() %><br>
+			名前：<%=employee.getName() %><br>
+			部署名：<%=employee.getSectionName() %><br>
+			性別：<%=employee.getGender() %><br>
+			生年月日：<%=employee.getBirthDay() %><br>
+			入社日：<%=employee.getHireDate() %><br>
+			
+		</div>
 		<!--（社長とシステム管理者のみ）更新と削除画面へ-->
 		<% int roleId = (int)(session.getAttribute("roleId")); %>
 		<% if ((roleId == 1) || (roleId == 2) ) { %>

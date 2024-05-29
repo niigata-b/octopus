@@ -9,6 +9,7 @@
 </head>
 <body>
 	<main>
+	<div class="check">
 		<%request.setCharacterEncoding("UTF-8");%>
 		<h2>-- 以下の内容を登録してもよろしいですか？ --</h2>
 		<form action="employee-insert-pass" method="POST">
@@ -19,6 +20,7 @@
 		性別：<%=request.getParameter("gender") %><br>
 		生年月日：<%=request.getParameter("birthDay") %><br>
 		入社日：<%=request.getParameter("hireDate") %><br>
+	</div>
 		<div class="normal">
 			<input type="submit" value="確定" class="normal-button">
 		</div>
