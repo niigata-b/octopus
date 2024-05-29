@@ -12,7 +12,9 @@
 	<main>
 		<h2>処理が完了しました</h2>
 		<form action="menu" method="post">
-		<input type ="submit" value="メニューへ戻る">
+		<div class="com">
+		<input type ="submit" value="メニューへ戻る"class="back-button">
+		</div>
 	</main>
 </form>
 </body>
