@@ -21,15 +21,29 @@
 		
 		<div class="field">
 			<h1>従業員詳細</h1>
-			
-			従業員コード：<%=employee.getCode() %><br>
-						  <%=employee.getKanaName() %><br>
-			名前：<%=employee.getName() %><br>
-			部署名：<%=employee.getSectionName() %><br>
-			性別：<%=employee.getGender() %><br>
-			生年月日：<%=employee.getBirthDay() %><br>
-			入社日：<%=employee.getHireDate() %><br>
-			
+			<table>
+			<tr>
+			<th>従業員コード</th><td><%=employee.getCode() %></td>
+			</tr>	
+			<tr>
+			<th>ふりがな</th><td><%=employee.getKanaName() %></td>
+			</tr>
+			<tr>
+			<th>名前</th><td><%=employee.getName() %></td>
+			</tr>
+			<tr>
+			<th>部署名</th><td><%=employee.getSectionName() %></td>
+			</tr>
+			<tr>
+			<th>性別</th><td><%=employee.getGender() %></td>
+			</tr>
+			<tr>
+			<th>生年月日</th><td><%=employee.getBirthDay() %></td>
+			</tr>
+			<tr>
+			<th>入社日</th><td><%=employee.getHireDate() %></td>
+			</tr>
+			</table>
 		</div>
 		<!--（社長とシステム管理者のみ）更新と削除画面へ-->
 		<% int roleId = (int)(session.getAttribute("roleId")); %>

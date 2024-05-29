@@ -15,7 +15,7 @@
 	</header>
 	<main>
 		<% List<MessageBean> messageList = (List) request.getAttribute("messageList"); %>
-		<h1>掲示板一覧</h1><br>
+		<img src="img/chat.png" width="90px" height="90px"><h1>掲示板一覧</h1><br>
 		<form action="message-post" method="post">
 			<div id="post-btn">
 				<input type="submit" value="＋" class="post-button">
