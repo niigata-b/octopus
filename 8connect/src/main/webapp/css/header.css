@@ -9,13 +9,13 @@ header{
 
 #account{
 	vertical-align: top;
-	margin-left: 1400px;
+	margin-left: 1380px;
 	
 	
 }
 
 #logout{
-	margin-left: 1390px;
+	margin-left: 1380px;
 	
 }
 
@@ -29,16 +29,18 @@ header{
 	font-size: 50px;
 	float: left;
 	margin-top: -60px;
+	margin-left: 8px;
 	vertical-align: top;
 }
 
 #name{
-	margin-left: 850px;
+	margin-left: 870px;
 	font-size: 22px;
 	float: left;
 	vertical-align: top;
 	margin-top: -47px;
 	
-	}
+}
+
 	
 

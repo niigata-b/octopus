@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>掲示板投稿画面</title>
 </head>
 <body>
@@ -23,7 +24,7 @@
 		
 		<form action="message-list" method="post">
 			<div class="back">
-			<input type="submit" value="戻る">
+			<input type="submit" value="戻る" class="back-button">
 			</div>
 	</main>
 </body>

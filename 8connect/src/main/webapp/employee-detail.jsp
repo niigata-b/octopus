@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>従業員詳細</title>
 </head>
 <body>
@@ -47,7 +48,7 @@
 		<!--メニュー画面へ-->
 		<form action="employee-list" method="post">
 			<div class="back">
-			<input type="submit" value="戻る">
+			<input type="submit" value="戻る" class="back-button">
 			</div>
 		</form>
 	</main>
