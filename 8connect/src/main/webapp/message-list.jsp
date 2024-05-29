@@ -32,7 +32,7 @@
 			<form action="message-detail" method="POST">
 				<input type="hidden" name="messageId" value="<%=message.getMessageId()%>">
 				<div id="view">
-					<input type="submit" value="もっと見る">
+					<input type="submit" value="もっと見る" class="view-button">
 				</div>
 			</form><br><hr class="messagehr"><br>
 			

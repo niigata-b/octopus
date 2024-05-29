@@ -16,19 +16,21 @@
 		<h1>従業員情報登録</h1>
 		<form action="employee-insert-check" method="POST">
 		<table>
-			<tr><th><span id="requisite">*</span>従業員コード：</th><td><input type="number" min="0" name="code" required="required"></td></tr> 
-			<tr><th><span id="requisite">*</span>名前　　　　：</th><td><input type="text" name="name" required="required" ></td></tr> 
-			<tr><th>ふりがな　　：</th><td><input type="text"name="kanaName" ></td></tr> 
-			<tr><span id="requisite">*</span>部署コード　：<select name="sectionCode">
+			<tr><th><span id="requisite">*</span>従業員コード</th><td><input type="number" min="0" name="code" required="required" class="nyuryoku"></td></tr> 
+			<tr><th><span id="requisite">*</span>名前　　　　</th><td><input type="text" name="name" required="required" class="nyuryoku"></td></tr> 
+			<tr><th>ふりがな　　</th><td><input type="text"name="kanaName" class="nyuryoku"></td></tr> 
+			<tr><th><span id="requisite">*</span>部署コード　</th><td><select name="sectionCode" class="nyuryoku">
 			<option value="k001">管理部</option>
 			<option value="k002">開発部</option>
 			<option value="k003">営業部</option>
-			</select><br> 
-			性別　　　　：
-			男<input type="radio"name="gender"value="男">
-			女<input type="radio"name="gender"value="女"><br> 
-			<span id="requisite">*</span>生年月日　　：<input type="date"name="birthDay" required="required"><br>
-			<span id="requisite">*</span>入社日　　　：<input type="date"name="hireDate" required="required"><br>
+			</select>
+			</td></tr>
+			<tr><th> 
+			性別　　　　</th>
+			<td>男<input type="radio"name="gender"value="男">
+			女<input type="radio"name="gender"value="女"></td></tr> 
+			<tr><th><span id="requisite">*</span>生年月日　　</th><td><input type="date"name="birthDay" required="required" class="nyuryoku"></td></tr>
+			<tr><th><span id="requisite">*</span>入社日　　　</th><td><input type="date"name="hireDate" required="required" class="nyuryoku"></td></tr>
 		</table>
 			<div class="normal">
 				<input type="submit"value="登録" class="normal-button">

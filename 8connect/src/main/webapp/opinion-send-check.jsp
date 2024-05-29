@@ -20,7 +20,7 @@
 		
 		</div>
 		<form action="opinion-send-pass" method="POST">
-			<div class="normal">
+			<div class="check-btn">
 				<input type="submit" value="確定" class="normal-button">
 			</div>
 		</form>

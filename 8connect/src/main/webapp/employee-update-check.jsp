@@ -43,7 +43,7 @@
 		<input type="hidden" name=gender value="<%=gender%>">
 		<input type="hidden" name="birthDay" value="<%=birthDay%>">
 		<input type="hidden" name="hireDate" value="<%=hireDate%>">
-		<div class="normal">
+		<div class="check-btn">
 			<input type="submit" value="確定" class="normal-button">
 		</div>
 	</form>
