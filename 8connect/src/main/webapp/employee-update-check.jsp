@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>従業員更新確認画面</title>
 </head>
 <body>
@@ -51,7 +52,9 @@
 		<input type="hidden" name=gender value="<%=gender%>">
 		<input type="hidden" name="birthDay" value="<%=birthDay%>">
 		<input type="hidden" name="hireDate" value="<%=hireDate%>">
-		<input type="submit" value="戻る">
+		<div class="back">
+			<input type="submit" value="戻る" class="back-button">
+		</div>
 	</form>
 	
 </body>

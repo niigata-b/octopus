@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>意見箱送信画面</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
 		</form>
 		<form action="menu" method="post">
 			<div class="back">
-			<input type="submit" value="戻る">
+			<input type="submit" value="戻る" class="back-button">
 			</div>
 		</form>
 		<form action="opinion-list" method="post">

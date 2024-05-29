@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
 <title>意見箱完了画面</title>
 </head>
 <body>
+	<%@ include file="header.jsp"%>
 	<main>
 		<h2>処理が完了しました</h2>
 		<form action="menu" method="post">

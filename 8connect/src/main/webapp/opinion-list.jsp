@@ -37,7 +37,7 @@
 		</div>
 		<form action="opinion-send" method="POST">
 			<div class="back">
-			<input type="submit" value="戻る">
+			<input type="submit" value="戻る" class="back-button">
 			</div>
 		</form>
 	</main>
