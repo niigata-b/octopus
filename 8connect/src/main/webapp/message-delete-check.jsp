@@ -14,9 +14,7 @@
 	</header>
 	<main>
 		<h2>-- 以下の内容を削除してもよろしいですか？ --</h2>
-		<form action="message-delete-pass" method="POST">
-			<input type="submit" value="確定">
-		</form>
+		
 		<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
 		<% session.setAttribute("message", message); %>
 		
@@ -25,6 +23,12 @@
 		掲示板内容：<%= message.getMessageText()%><br>
 		
 		<% System.out.println("削除jsp：" + message.getPostDatetime()); %>
+		
+		<form action="message-delete-pass" method="POST">
+			<div class="decision">
+				<input type="submit" value="確定" class="nomal-button">
+			</div>
+		</form>
 		
 		<form action="message-detail" method="POST">
 			<div class="back">

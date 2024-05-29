@@ -14,7 +14,8 @@
 	<main>
 		<h1>メニュー</h1>
 		<form action="employee-list" method="post">
-			<input type="submit" value="従業員管理">
+		
+			<input type="submit" value="従業員管理" class="menu-button">
 		</form>
 		<form action="message-list" method="post">
 			<input type="submit" value="掲示板">
@@ -23,13 +24,13 @@
 		<% int roleId = (int)(session.getAttribute("roleId")); %>
 		<% if (roleId != 1) { %>
 			<form action="opinion-send" method="post">
-				<input type="submit" value="意見箱送信">
+				<input type="submit" value="意見箱送信" class="menu-button">
 			</form>
 		<% } %>
 		
 		<% if (roleId == 1) { %>
 		<form action="opinion-view" method="post">
-			<input type="submit" value="意見箱閲覧">
+			<input type="submit" value="意見箱閲覧" class="menu-button">
 		</form>
 		<% } %>
 	</main>
