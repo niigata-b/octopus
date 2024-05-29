@@ -23,7 +23,7 @@
 	</div>
 		
 		<form action="message-delete-pass" method="POST">
-			<div class="decision">
+			<div class="check-btn">
 				<input type="submit" value="確定" class="nomal-button">
 			</div>
 		</form>

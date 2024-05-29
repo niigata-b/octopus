@@ -21,7 +21,7 @@
 		生年月日：<%=request.getParameter("birthDay") %><br>
 		入社日：<%=request.getParameter("hireDate") %><br>
 	</div>
-		<div class="normal">
+		<div class="check-btn">
 			<input type="submit" value="確定" class="normal-button">
 		</div>
 		</form>

@@ -15,28 +15,31 @@
 		String code = (String)request.getAttribute("code");
 	%>
 	<div class="field">
-	<h1>従業員更新</h1><br>
+	<h1>従業員更新</h1>
 	
 	<form action="employee-update-check" method="POST">
-	
-		従業員コード：<%=employee.getCode() %><br> 
-		<span id="requisite">*</span>名前：<input type="text" name="name" value=" <%=employee.getName()%>" required="required" ><br> 
-		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"><br> 
-		部署：<select name="sectionCode" value="<%=employee.getSectionName()%>">
-			<option value="K001">管理部</option>
-			<option value="K002">開発部</option>
-			<option value="K003">営業部</option>
-		</select><br> 
-		性別：
-		<%if(employee.getGender().equals("男")){ %>
-		男<input type="radio"name="gender"value="男" checked>
-		女<input type="radio"name="gender"value="女"><br> 
-		<%}else{ %>
-		男<input type="radio"name="gender"value="男">
-		女<input type="radio"name="gender"value="女" checked><br>
-		<%} %>
-		<span id="requisite">*</span>生年月日：<input type="date"name="birthDay" value="<%= employee.getBirthDay()%>" required="required" ><br>
-		<span id="requisite">*</span>入社日：<input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" ><br>
+		
+		<table>
+			<tr><th>従業員コード</th><td><%=employee.getCode() %></td></tr> 
+			<tr><th><span id="requisite">*</span>名前</th><td><input type="text" name="name" value=" <%=employee.getName()%>" required="required" class="nyuryoku"></td></tr> 
+			<tr><th>ふりがな</th><td><input type="text"name="kanaName" value="<%=employee.getKanaName()%>" class="nyuryoku"></td></tr> 
+			<tr><th>部署</th><td><select name="sectionCode" value="<%=employee.getSectionName()%>" class="nyuryoku">
+				<option value="K001">管理部</option>
+				<option value="K002">開発部</option>
+				<option value="K003">営業部</option>
+			</select></td></tr>
+			<tr><th>性別</th>
+			<td><%if(employee.getGender().equals("男")){ %>
+			男<input type="radio"name="gender"value="男" checked>
+			女<input type="radio"name="gender"value="女"><br> 
+			<%}else{ %>
+			男<input type="radio"name="gender"value="男">
+			女<input type="radio"name="gender"value="女" checked><br>
+			<%} %></td></tr>
+			<tr><th><span id="requisite">*</span>生年月日</th><td><input type="date"name="birthDay" value="<%= employee.getBirthDay()%>" required="required" class="nyuryoku"></td></tr>
+			<tr><th><span id="requisite">*</span>入社日</th><td><input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" class="nyuryoku"></td></tr>
+			
+		</table>
 		
 		<div class="field">
 		<input type="hidden" name="code" value="<%=code %>">
@@ -45,7 +48,7 @@
 	</div>
 	</form>
 	
-	<form action="employee-list" method="POST">
+	<form action="employee-detail" method="POST">
 	
 	<input type="hidden" name="code" value="<%=code %>">
 	<div class="back">

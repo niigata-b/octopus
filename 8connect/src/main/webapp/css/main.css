@@ -37,6 +37,10 @@ table{
 	margin-right: 625px;
 }
 
+#requisite {
+	color: red;
+}
+
 th{
 	background-color: #C8E2E6;
 }
@@ -223,6 +227,11 @@ select{
 
 #view {
 	margin-left: 800px;
+	margin-top: 10px;
+}
+
+.view-button {
+	font-size: 17px;
 }
 
 .isert-btn {
@@ -233,8 +242,8 @@ select{
 
 .normal {
 	position: absolute;
-	right: 180px;
-	top: 130px;
+	right: 240px;
+	top:600px;
 }
 
 .normal-button {
@@ -264,15 +273,22 @@ select{
 
 .check {
 	margin-top: 60px;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .field {
-	border: solid;
 	width: 50%;
 	font-size: 30px;
-	margin-top: 30px;
-	margin-left: 370px;
+	margin-top: 40px;
+	margin-left: 250px;
+}
+
+.field h1 {
+	margin-left: -500px;
+}
+
+.field th {
+	width: 400px;
 }
 
 .syatyou-button {
@@ -292,5 +308,44 @@ select{
 .syatyou-button:hover {
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : rgb(247, 55, 55);     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.nyuryoku {
+	width: 400px;
+	height: 25px;
+	font-size: 20px;
+	
+}
+
+.check-btn {
+	position: absolute;
+	right: 90px;
+	top: 80px;
+}
+
+.delete {
+	position: absolute;
+	right: 80px;
+	top:600px;
+}
+
+.delete-button {
+  display       : inline-block;
+  font-weight: bold;
+  border-radius : 13%;          /* 角丸       */
+  font-size     : 21pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 13px 21px;   /* 余白       */
+  background    : #DC143C;     /* 背景色     */
+  color         : white;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #DC143C;     /*枠の指定 */
+}
+.delete-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #DC143C;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
 }
