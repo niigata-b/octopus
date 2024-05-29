@@ -19,8 +19,8 @@
 		性別：<%=request.getParameter("gender") %><br>
 		生年月日：<%=request.getParameter("birthDay") %><br>
 		入社日：<%=request.getParameter("hireDate") %><br>
-		<div class="decision">
-			<input type="submit" value="確定" class="nomal-button">
+		<div class="normal">
+			<input type="submit" value="確定" class="normal-button">
 		</div>
 		</form>
 			<form action="employee-insert" method="POST">

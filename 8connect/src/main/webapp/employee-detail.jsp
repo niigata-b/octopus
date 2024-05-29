@@ -35,15 +35,15 @@
 		<% if ((roleId == 1) || (roleId == 2) ) { %>
 		<form action="employee-update" method="post">
 			<input type="hidden" name="code" value="<%=code %>">
-			<div class="update-button">
-				<input type="submit" value="更新" class="nomal-button">
+			<div class="normal">
+				<input type="submit" value="更新" class="normal-button">
 			</div>
 		</form>
 		
 		<form action="empoloyee-delete-check" method="post">
 			<input type="hidden" name="code" value="<%=code %>">
-			<div class="delete-button">
-				<input type="submit" value="削除" class="nomal-button">
+			<div class="delete">
+				<input type="submit" value="削除" class="delete-button">
 			</div>
 		</form>
 		<% 

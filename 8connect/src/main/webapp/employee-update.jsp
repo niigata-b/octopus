@@ -39,8 +39,9 @@
 		<span id="requisite">*</span>入社日：<input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" ><br>
 		
 		<input type="hidden" name="code" value="<%=code %>">
-		<input type="submit"value="更新">
-		
+		<div class="normal">
+			<input type="submit"value="更新" class="normal-button">
+		</div>
 	</form>
 	
 	<form action="employee-list" method="POST">

@@ -12,7 +12,9 @@
 	<%@ include file="header.jsp"%>
 	<h2>処理に失敗しました</h2>
 	<form action="employee-list" method="post">
-	<input type ="submit" value="従業員一覧へ戻る">
+	<div class="com">
+		<input type ="submit" value="従業員一覧へ戻る" class="back-button">
+	</div>
 	</form>
 </main>
 </body>
