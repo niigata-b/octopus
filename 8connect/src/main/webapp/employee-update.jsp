@@ -19,10 +19,8 @@
 	<form action="employee-update-check" method="POST">
 	
 		従業員コード：<%=employee.getCode() %><br> 
-		<span id="requisite">*</span>名前：<input type="text" name="name" value=" <%=employee.getName()%>" required="required" 
-			 	pattern="[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFF9F\u4E00-\u9FFF]*" title="日本語のみ入力してください"><br> 
-		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"
-			pattern="[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFF9F\u4E00-\u9FFF]*" title="日本語のみ入力してください"><br> 
+		<span id="requisite">*</span>名前：<input type="text" name="name" value=" <%=employee.getName()%>" required="required" ><br> 
+		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"><br> 
 		部署：<select name="sectionCode" value="<%=employee.getSectionName()%>">
 			<option value="K001">管理部</option>
 			<option value="K002">開発部</option>
