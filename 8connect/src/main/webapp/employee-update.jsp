@@ -22,9 +22,9 @@
 		名前：<input type="text" name="name" value=" <%=employee.getName()%>"><br> 
 		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"><br> 
 		部署：<select name="sectionCode" value="<%=employee.getSectionName()%>">
-			<option value="k001">管理部</option>
-			<option value="k002">開発部</option>
-			<option value="k003">営業部</option>
+			<option value="K001">管理部</option>
+			<option value="K002">開発部</option>
+			<option value="K003">営業部</option>
 		</select><br> 
 		性別：
 		<%if(employee.getGender().equals("男")){ %>

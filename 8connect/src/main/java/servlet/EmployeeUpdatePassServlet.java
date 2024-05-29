@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,6 +43,8 @@ public class EmployeeUpdatePassServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
 
 		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
@@ -62,6 +65,14 @@ public class EmployeeUpdatePassServlet extends HttpServlet {
 		Date birthDay = Date.valueOf(request.getParameter("birthDay"));
 		
 		Date hireDate = Date.valueOf(request.getParameter("hireDate"));
+		
+		System.out.println(code);
+		System.out.println(name);
+		System.out.println(kanaName);
+		System.out.println(sectionCode);
+		System.out.println(gender);
+		System.out.println(birthDay);
+		System.out.println(hireDate);
 
 		//転送先のurl
 		String url = null;
@@ -80,9 +91,11 @@ public class EmployeeUpdatePassServlet extends HttpServlet {
 					url = "employee-end.jsp";
 				}
 
-			} catch (Exception e) {
+			} catch (ClassNotFoundException | SQLException | NullPointerException e) {
 				e.printStackTrace();
+				url="employee-error.jsp";
 			}
+
 
 		} else {
 			// 未認証

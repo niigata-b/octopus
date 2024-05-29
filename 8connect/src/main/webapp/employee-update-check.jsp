@@ -26,20 +26,31 @@
 	
 		従業員コード：<%=code%><br>
 		名前：<%=name%><br>
-		ふりがな: <%=kanaName%><br><br>
-		部署名：<%=sectionCode%><br>
+		ふりがな: <%=kanaName%><br>
+		部署：<%=sectionCode%><br>
 		性別：<%=gender%><br>
 		生年月日：<%=birthDay%><br>
 		入社日：<%=hireDate%><br>
 	
 		<form action="employee-update-pass" method="post">
 		<input type="hidden" name="code" value="<%=code%>">
+		<input type="hidden" name="name" value="<%=name%>">
+		<input type="hidden" name="kanaName" value="<%=kanaName%>">
+		<input type="hidden" name=sectionCode value="<%=sectionCode%>">
+		<input type="hidden" name=gender value="<%=gender%>">
+		<input type="hidden" name="birthDay" value="<%=birthDay%>">
+		<input type="hidden" name="hireDate" value="<%=hireDate%>">
 		<input type="submit" value="確定">
 	</form>
 	
 	<form action="employee-update" method="post">
-	
 		<input type="hidden" name="code" value="<%=code%>">
+		<input type="hidden" name="name" value="<%=name%>">
+		<input type="hidden" name="kanaName" value="<%=kanaName%>">
+		<input type="hidden" name=sectionCode value="<%=sectionCode%>">
+		<input type="hidden" name=gender value="<%=gender%>">
+		<input type="hidden" name="birthDay" value="<%=birthDay%>">
+		<input type="hidden" name="hireDate" value="<%=hireDate%>">
 		<input type="submit" value="戻る">
 	</form>
 	

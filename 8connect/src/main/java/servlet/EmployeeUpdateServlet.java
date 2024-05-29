@@ -36,7 +36,10 @@ public class EmployeeUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String code = (String) request.getParameter("code");
+		request.setAttribute("code", code);
+		
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("employee-update.jsp");
 		rd.forward(request, response);

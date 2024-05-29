@@ -108,20 +108,20 @@ public class EmployeeDAO {
 	public int update(String code, String name, String kanaName, String sectionCode, String gender, Date birthDay, Date hireDate) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0; //処理件数
 
-		String sql = "UPDATE SET code = ?, name = ?, kana_name = ?, section_code = ?, gender = ?, birth_day = ?, hire_date = ? WHERE code = ?";
+		String sql = "UPDATE m_employee SET name = ?, kana_name = ?, section_code = ?, gender = ?, birth_day = ?, hire_date = ? WHERE code = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			
 			// プレースホルダへの値の設定
-			pstmt.setString(1, code);
-			pstmt.setString(2, name);
-			pstmt.setString(3, kanaName);
-			pstmt.setString(4, sectionCode);
-			pstmt.setString(5, gender);
-			pstmt.setDate(6, birthDay);
-			pstmt.setDate(7, hireDate);
+			pstmt.setString(1, name);
+			pstmt.setString(2, kanaName);
+			pstmt.setString(3, sectionCode);
+			pstmt.setString(4, gender);
+			pstmt.setDate(5, birthDay);
+			pstmt.setDate(6, hireDate);
+			pstmt.setString(7, code);
 
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
