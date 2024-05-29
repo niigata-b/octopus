@@ -12,11 +12,13 @@
 	<h2><%= session.getAttribute("name") %>さんログアウトしますか?</h2>
 	<form action="menu" method="post">
 		<div class="back">
-			<input type="submit" value="戻る">
+			<input type="submit" value="戻る" class="back-button">
 		</div>
 	</form>
 	<form action="logout" method="post">
-	<input type ="submit" value="ログアウト">
+	<div id="logout">
+	<input type ="submit" value="ログアウト" class="login-button">
+	</div>
 </main>
 </body>
 </html>

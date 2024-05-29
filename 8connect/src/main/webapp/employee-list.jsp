@@ -37,7 +37,9 @@
 	<% if ((roleId == 1) || (roleId == 2) ) { %>
 	<span id="insert">
 	<form action="employee-insert" method="post">
-		<input type="submit" value="登録">
+		<div class="normal">
+		<input type="submit" value="登録" class="normal-button">
+		</div>
 	</form>
 	</span>
 	<%

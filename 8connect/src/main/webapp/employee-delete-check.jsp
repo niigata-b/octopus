@@ -28,8 +28,8 @@
 		
 		<form action="employee-delete-pass" method="post">
 			<input type="hidden" name="code" value="<%=code %>">
-			<div class="decision">
-				<input type="submit" value="確定" class="nomal-button">
+			<div class="normal">
+				<input type="submit" value="確定" class="normal-button">
 			</div>
 		</form>
 		

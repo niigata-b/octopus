@@ -27,7 +27,9 @@
 			女<input type="radio"name="gender"value="女"><br> 
 			<span id="requisite">*</span>生年月日：<input type="date"name="birthDay" required="required"><br>
 			<span id="requisite">*</span>入社日：<input type="date"name="hireDate" required="required"><br>
-			<input type="submit"value="登録">
+			<div class="normal">
+				<input type="submit"value="登録" class="normal-button">
+			</div>
 		</form>
 		
 		<form action="employee-list" method="POST">
