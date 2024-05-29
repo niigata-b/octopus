@@ -7,12 +7,21 @@
 </head>
 <body>
 	<main>
-		<h1>ログイン</h1>
-		<form action="login" method="post">
-			ユーザID：<input type="text" name="userId" required="required"><br>
-			パスワード：<input type="password" name="password" required="required"><br>
-			<input type="submit" value="ログイン">
-		</form>
+		<div id="login-main">
+			<img src="img/logo.png" width="356" height="70" class="login-logo">
+			<hr class="login-hr">
+			<div class="login-border">
+			<form action="login" method="post">
+				<div id="login">
+					ユーザID　：<input type="text" name="userId" required="required" class="login-box"><br>
+					<span id="login-br">パスワード：<input type="password" name="password" required="required" class="login-box"><br></span>
+				</div>
+				<div id="log">
+					<input type="submit" value="ログイン" class="login-button">	
+				</div>
+			</form>
+			</div>
+		</div>
 	</main>
 </body>
 </html>
