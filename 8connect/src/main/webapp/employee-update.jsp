@@ -19,8 +19,10 @@
 	<form action="employee-update-check" method="POST">
 	
 		従業員コード：<%=employee.getCode() %><br> 
-		名前：<input type="text" name="name" value=" <%=employee.getName()%>"><br> 
-		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"><br> 
+		<span id="requisite">*</span>名前：<input type="text" name="name" value=" <%=employee.getName()%>" required="required" 
+			 	pattern="[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFF9F\u4E00-\u9FFF]*" title="日本語のみ入力してください"><br> 
+		ふりがな：<input type="text"name="kanaName" value="<%=employee.getKanaName()%>"
+			pattern="[\u3000-\u303F\u3040-\u309F\u30A0-\u30FF\uFF00-\uFF9F\u4E00-\u9FFF]*" title="日本語のみ入力してください"><br> 
 		部署：<select name="sectionCode" value="<%=employee.getSectionName()%>">
 			<option value="K001">管理部</option>
 			<option value="K002">開発部</option>
@@ -34,8 +36,8 @@
 		男<input type="radio"name="gender"value="男">
 		女<input type="radio"name="gender"value="女" checked><br>
 		<%} %>
-		生年月日：<input type="date"name="birthDay" value="<%= employee.getBirthDay()%>"><br>
-		入社日：<input type="date"name="hireDate" value="<%= employee.getHireDate()%>"><br>
+		<span id="requisite">*</span>生年月日：<input type="date"name="birthDay" value="<%= employee.getBirthDay()%>" required="required" ><br>
+		<span id="requisite">*</span>入社日：<input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" ><br>
 		
 		<input type="hidden" name="code" value="<%=code %>">
 		<input type="submit"value="更新">
