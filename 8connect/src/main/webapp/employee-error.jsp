@@ -10,6 +10,7 @@
 <body>
 <main>
 	<%@ include file="header.jsp"%>
+	
 	<h2>処理に失敗しました</h2>
 	<form action="employee-list" method="post">
 	<div class="com">

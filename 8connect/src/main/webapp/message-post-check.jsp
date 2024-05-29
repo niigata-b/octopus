@@ -9,13 +9,14 @@
 </head>
 <body>
 	<main>
+	<div class="check">
 		<h2>-- 以下の内容で投稿しますか？ --</h2>
 	
 		タイトル：<%= session.getAttribute("title") %>
 		<br>
 		 投稿内容：<%= session.getAttribute("messageText") %>
 		 <br>
-	
+	</div>
 		<form action="message-post-pass" method="POST">
 			<div class="decision">
 				<input type="submit" value="確定" class="nomal-button">

@@ -9,10 +9,8 @@
 <title>掲示板削除確認画面</title>
 </head>
 <body>
-	<header>
-		<%@ include file="header.jsp" %>
-	</header>
 	<main>
+	<div class="check">
 		<h2>-- 以下の内容を削除してもよろしいですか？ --</h2>
 		
 		<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
@@ -22,7 +20,7 @@
 		タイトル：<%= message.getTitle() %><br>
 		掲示板内容：<%= message.getMessageText()%><br>
 		
-		<% System.out.println("削除jsp：" + message.getPostDatetime()); %>
+	</div>
 		
 		<form action="message-delete-pass" method="POST">
 			<div class="decision">

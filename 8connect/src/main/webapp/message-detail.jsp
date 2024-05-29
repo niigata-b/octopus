@@ -15,6 +15,8 @@
 	
 	<main>
 	
+	<div class="field">
+	
 	<% String loginCode = (String) session.getAttribute("code");
 	   String detailCode = (String) request.getAttribute("code");
 	   System.out.println(loginCode);
@@ -32,7 +34,8 @@
 		<%= message.getMessageText() %><br>
 		<%= message.getName() %><br>
 		<% System.out.println("詳細jsp：" + message.getPostDatetime()); %>
-		
+	
+	</div>
 		<form action="message-list" method="POST">
 			<div class="back">
 			<input type="submit" value="戻る" class="back-button">

@@ -14,7 +14,7 @@
 		EmployeeBean employee = (EmployeeBean)session.getAttribute("employee");
 		String code = (String)request.getAttribute("code");
 	%>
-	
+	<div class="field">
 	<h1>従業員更新</h1><br>
 	
 	<form action="employee-update-check" method="POST">
@@ -38,10 +38,11 @@
 		<span id="requisite">*</span>生年月日：<input type="date"name="birthDay" value="<%= employee.getBirthDay()%>" required="required" ><br>
 		<span id="requisite">*</span>入社日：<input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" ><br>
 		
+		<div class="field">
 		<input type="hidden" name="code" value="<%=code %>">
 		<div class="normal">
 			<input type="submit"value="更新" class="normal-button">
-		</div>
+	</div>
 	</form>
 	
 	<form action="employee-list" method="POST">
