@@ -18,6 +18,10 @@ h2 {
 	font-size: 40px;
 }
 
+textarea {
+	resize: none;
+}
+
 .container {
  max-height: 425px;
  overflow-y: scroll;
