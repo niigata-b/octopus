@@ -46,24 +46,21 @@
 		}
 	%>
 	<span class="caption">＊従業員コードをクリックすると詳細画面へ飛びます<br></span>
-	
+	<div class="container">
 	<table border="1">
 		<!-- テーブル見出し -->
-		<div class="thead">
 		<tr>
-			<th>従業員コード</th>
-			<th>名前</th>
-			<th>ふりがな</th>
-			<th>部署名</th>
-			<th>入社日</th>
+			<th class="thead">従業員コード</th>
+			<th class="thead">名前</th>
+			<th class="thead">ふりがな</th>
+			<th class="thead">部署名</th>
+			<th class="thead">入社日</th>
 		</tr>
-		</div>
 		<!-- 従業員一覧 -->
 		<%
 			for(EmployeeBean employee : employeeList){
 		%>
 		<tr>
-		<div class="tbody">
 			<td><form action="employee-detail" method="post">
 					<input type="hidden" name="code" value="<%=employee.getCode() %>">
 					<input type="submit" value="<%=employee.getCode() %>">
@@ -77,9 +74,8 @@
 		<%
 			}
 		%>
-		</div>	
 	</table>
-	
+	</div>
 	
 	
 	
