@@ -30,13 +30,18 @@ textarea {
 }
 
 .thead {
+	position: sticky;
+	top: 0;
+	left: 0;
+}
+
+thead {
 	text-align: center;
 }
 
-.tbody {
+tbody {
 	max-height: 425px;
-	overflow-y: auto;
-	color: #DC143C;
+	overflow-y: scroll;
  	text-align: center;
 }
 
@@ -549,7 +554,7 @@ message-delete {
 	border-top: 2px solid ;
 	font-size: 2px;
 	width: 10%;
-	color: #997D67;
+	color: rgb(255, 128, 64);
 }
 
 .message-title {
@@ -584,7 +589,16 @@ message-delete {
 
 .hissu {
 	color: red;
+	font-size: 25px;
 	position: absolute;
-	top: 160px;
-	left: 1000px;
+	top: 165px;
+	left: 1025px;
+}
+
+.message-hissu {
+	color: red;
+	font-size: 25px;
+	position: absolute;
+	top: 540px;
+	left: 415px;
 }

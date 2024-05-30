@@ -13,7 +13,7 @@
 	</header>
 	<main>
 	<h2>掲示板投稿<hr class="message-post-hr"></h2>
-	
+	<div class="message-hissu">* は必須項目です。</div>
 	<div class="message-post-field">
 		<form action="message-post-check" method="post">
 			<span id="requisite">*</span>タイトル（50文字以内）<br>
