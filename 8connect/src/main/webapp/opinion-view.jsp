@@ -15,17 +15,22 @@
 		<%
 			List<OpinionBean> opinionList = (List) request.getAttribute("opinionList");
 		%>
-		
+		<h2>意見箱閲覧</h2>
 		<div class="container">
-			<%
-				for (OpinionBean opinion : opinionList) {
-			%>
-				<%=opinion.getName()%>　<%= opinion.getSendDatetime() %><br>
-				<%=opinion.getOpinionText()%><br><hr>
-			<%
-				}
-			
-			%>
+			<div class="opinion-view">
+				
+				<%
+					for (OpinionBean opinion : opinionList) {
+				%>
+				<div class="opinion-view-text">
+						<%=opinion.getName()%>　<%= opinion.getSendDatetime() %><br>
+				</div>
+					<%=opinion.getOpinionText()%><br><hr class="opinion-view-hr">
+				<%
+					}
+				
+				%>
+			</div>
 		</div>
 		<form action="menu" method="POST">
 			<div class="back">

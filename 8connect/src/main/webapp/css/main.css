@@ -354,6 +354,11 @@ select{
   background    : #ffffff;     /* 文字色     */
 }
 
+.logout-field {
+	position: absolute;
+	top: -30px;
+	left: 450px;
+}
 
 .logout-field h2{
 	margin-top: 300px;
@@ -467,4 +472,29 @@ message-delete {
 .rireki-button {
 	font-size: 20px;
 	width: 100px;
+}
+
+
+.opinion-view {
+	margin-left: 225px;
+	width: 70%;
+}
+
+.opinion-view-text {
+	font-weight: bold;
+}
+
+.error-img {
+	position: absolute;
+	top: 145px;
+	left: 500px;
+}
+
+.login-failure {
+	margin-top: 170px;
+	font-size: 30px;
+}
+
+.login-failure h2 {
+	color: red;
 }

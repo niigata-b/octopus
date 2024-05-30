@@ -8,18 +8,19 @@
 <title>ログアウト画面</title>
 </head>
 <body>
-<div clss="logout-field">
-	<h2><%= session.getAttribute("name") %>さんログアウトしますか?</h2>
-</div>
+	<div class="logout-field">
+		<h2><%= session.getAttribute("name") %>さんログアウトしますか?</h2>
+	
+		
+		<form action="logout" method="post">
+		<div id="logout">
+		<input type ="submit" value="ログアウト" class="login-button">
+	</div>
+	</div>
 	<form action="menu" method="post">
 		<div class="back">
 			<input type="submit" value="戻る" class="back-button">
 		</div>
 	</form>
-	<form action="logout" method="post">
-	<div id="logout">
-	<input type ="submit" value="ログアウト" class="login-button">
-	</div>
-
 </body>
 </html>
