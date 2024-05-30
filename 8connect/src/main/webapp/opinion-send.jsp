@@ -27,7 +27,7 @@
 		<span class="caption">　　　　　　　　*400文字以内</span>
 		<form action="opinion-send-check" method="post">
 			
-			<textarea name="opinionText" cols="80" rows="10" required="required"></textarea> <br>
+			<textarea name="opinionText" cols="80" rows="10" required="required" maxlength="400"></textarea> <br>
 		<div class="send-btn">
 		<input type ="submit" value="送信" class="normal-button">
 		</div>

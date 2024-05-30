@@ -17,10 +17,10 @@
 	<div class="message-post-field">
 		<form action="message-post-check" method="post">
 			<span id="requisite">*</span>タイトル（50文字以内）<br>
-			<input type="text" size="50" name="title" required="required" class="message-title"><br><br>
+			<input type="text" size="50" name="title" maxlength="50" required="required" class="message-title" ><br><br>
 	
 			<span id="requisite">*</span>投稿内容（200文字以内）<br>
-			<textarea name="messageText" cols="50" rows="4" required="required" class="message-text"></textarea><br>
+			<textarea name="messageText" cols="50" rows="4" required="required" maxlength="200" class="message-text" ></textarea><br>
 			
 	</div>
 		

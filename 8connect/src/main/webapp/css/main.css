@@ -28,6 +28,18 @@ textarea {
  text-align: center;
  
 }
+
+.thead {
+	text-align: center;
+}
+
+.tbody {
+	max-height: 425px;
+	overflow-y: auto;
+	color: #DC143C;
+ 	text-align: center;
+}
+
 .data, th, td {
  border: 1px solid black;
  border-collapse: collapse;
@@ -568,4 +580,11 @@ message-delete {
 	margin-top: 50px;
 	font-size: 60px;
 	font-weight: bold;
+}
+
+.hissu {
+	color: red;
+	position: absolute;
+	top: 160px;
+	left: 1000px;
 }
