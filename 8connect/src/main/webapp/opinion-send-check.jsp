@@ -11,10 +11,10 @@
 <body>
 	<main>
 		<% OpinionBean opinion = new OpinionBean(); %>
-		<div class="check">
 		<h2>-- 以下の内容で送信しますか？--</h2>
+		<div class="message-delete-check">
 		
-		従業員コード：<%= session.getAttribute("code") %><br>
+		
 		意見内容：<%= session.getAttribute("opinionText") %><br>
 		
 		

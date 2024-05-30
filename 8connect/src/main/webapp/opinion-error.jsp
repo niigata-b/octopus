@@ -10,10 +10,12 @@
 <body>
 	<%@ include file="header.jsp"%>
 	<main>
+	<div class="error">
 		<h2>処理に失敗しました</h2>
 		<form action="menu" method="post">
 		<div class="com">
 		<input type ="submit" value="メニューへ戻る"class="back-button">
+		</div>
 		</div>
 	</main>
 </form>

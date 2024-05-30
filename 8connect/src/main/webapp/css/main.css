@@ -13,6 +13,11 @@ h1 {
 	margin-top: 10px;
 }
 
+h2 {
+	margin-top: 30px;
+	font-size: 40px;
+}
+
 .container {
  max-height: 425px;
  overflow-y: scroll;
@@ -268,10 +273,7 @@ select{
   background    : #ffffff;     /* 文字色     */
 }
 
-.send-btn {
-	margin-top: -50px;
-	margin-left: 1000px;
-}
+
 
 .check {
 	margin-top: 60px;
@@ -352,17 +354,117 @@ select{
   background    : #ffffff;     /* 文字色     */
 }
 
+
 .logout-field h2{
 	margin-top: 300px;
 }
 
 .end {
 	position: absolute;
-	top: 300px;
+	top: 200px;
+	left: 570px;
+	font-size: 50px;
 }
 
+.error {
+	position: absolute;
+	top: 200px;
+	left: 570px;
+	font-size: 50px;
+}
+
+.error h2 {
+	color: red;
+}
+
+.message-field {
+	border: solid;
+	border-style: dotted;
+	border-color: #997D67;
+	border-radius: 30px;
+	padding: 20px;
+	margin-top: 70px;
+	margin-left: 200px;
+	font-size: 30px;
+	width: 70%;
+	
+}
 message-delete {
 	position: absolute;
-	top: 100px;
+	top: 1000px;
 	right: 50px;
+}
+
+#postdate {
+	margin-right: 750px;
+	font-size: 25px;
+}
+
+#title {
+	margin-right: 600px;
+	font-weight: bold;
+}
+
+#message-name {
+	margin-left: 800px;
+	font-size: 25px;
+}
+
+#message-text {
+	font-size: 25px;
+
+}
+
+.message-delete {
+	margin-top: 20px;
+	margin-left: 1000px;
+}
+
+.message-delete-check {
+	margin-left: 150px;
+	margin-top: 100px;
+	font-size: 30px;
+	text-align: left;
+	width: 80%;
+}
+
+.message-bold {
+	font-weight: bold;
+}
+
+.opinion-hr {
+	width: 70%;
+}
+
+.top-text {
+	color: darkorange;
+	font-weight: bold;
+}
+
+.opinion-text {
+	font-size: 20px;
+	margin-top: 80px;
+}
+
+.send-btn {
+	position: absolute;
+	top: 600px;
+	right: 150px;
+}
+
+.opinion-img {
+	position: absolute;
+	top: 100px;
+	left: 700px;
+}
+
+.rireki {
+	position: absolute;
+	top: 420px;
+	right: 530px;
+}
+
+.rireki-button {
+	font-size: 20px;
+	width: 100px;
 }

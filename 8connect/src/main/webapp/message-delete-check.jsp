@@ -10,15 +10,15 @@
 </head>
 <body>
 	<main>
-	<div class="check">
+	
 		<h2>-- 以下の内容を削除してもよろしいですか？ --</h2>
-		
+	<div class="message-delete-check">	
 		<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
 		<% session.setAttribute("message", message); %>
 		
-		名前：<%= message.getName() %><br>
-		タイトル：<%= message.getTitle() %><br>
-		掲示板内容：<%= message.getMessageText()%><br>
+		<span class="message-bold">名前　　　：</span><%= message.getName() %><br>
+		<span class="message-bold">タイトル　：</span><%= message.getTitle() %><br>
+		<span class="message-bold">掲示板内容：</span><%= message.getMessageText()%><br>
 		
 	</div>
 		
