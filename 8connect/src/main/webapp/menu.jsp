@@ -12,7 +12,9 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<main>
-		<h1>- menu -</h1>
+	<div class="menu-text">
+		- menu -
+	</div>
 		<form action="employee-list" method="post">
 			<div id="employee-btn">
 				<input type="submit" value="従業員管理" class="menu-button">

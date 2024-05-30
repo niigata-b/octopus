@@ -12,17 +12,21 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<main>
-	<h2>掲示板投稿</h2>
-	<div class="field">
+	<h2>掲示板投稿<hr class="message-post-hr"></h2>
+	
+	<div class="message-post-field">
 		<form action="message-post-check" method="post">
 			<span id="requisite">*</span>タイトル（50文字以内）<br>
-			<input type="text" size="50" name="title" required="required"><br>
+			<input type="text" size="50" name="title" required="required" class="message-title"><br><br>
 	
 			<span id="requisite">*</span>投稿内容（200文字以内）<br>
-			<textarea name="messageText" cols="50" rows="4" required="required"></textarea><br>
+			<textarea name="messageText" cols="50" rows="4" required="required" class="message-text"></textarea><br>
 			
 	</div>
-			<input type="submit" value="投稿" class="normal-button"><br>		
+		
+		<div class="message-post-btn">
+			<input type="submit" value="投稿" class="normal-button"><br>
+		</div>		
 		</form>
 		
 		<form action="message-list" method="post">

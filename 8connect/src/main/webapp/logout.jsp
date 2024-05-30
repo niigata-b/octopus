@@ -15,6 +15,7 @@
 		<form action="logout" method="post">
 		<div id="logout">
 		<input type ="submit" value="ログアウト" class="login-button">
+		</form>
 	</div>
 	</div>
 	<form action="menu" method="post">
