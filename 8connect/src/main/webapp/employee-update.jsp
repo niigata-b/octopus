@@ -16,6 +16,7 @@
 	%>
 	<div class="field">
 	<h1>従業員更新</h1>
+	<div class="hissu">* は必須項目です。</div>
 	
 	<form action="employee-update-check" method="POST">
 		
@@ -28,13 +29,13 @@
 				<option value="K002">開発部</option>
 				<option value="K003">営業部</option>
 			</select></td></tr>
-			<tr><th>性別</th>
+			<tr><th><span id="requisite">*</span>性別</th>
 			<td><%if(employee.getGender().equals("男")){ %>
-			男<input type="radio"name="gender"value="男" checked>
-			女<input type="radio"name="gender"value="女"><br> 
+			男<input type="radio"name="gender"value="男" checked required="required">
+			女<input type="radio"name="gender"value="女" required="required"><br> 
 			<%}else{ %>
-			男<input type="radio"name="gender"value="男">
-			女<input type="radio"name="gender"value="女" checked><br>
+			男<input type="radio"name="gender"value="男" required="required">
+			女<input type="radio"name="gender"value="女" checked required="required"><br>
 			<%} %></td></tr>
 			<tr><th><span id="requisite">*</span>生年月日</th><td><input type="date"name="birthDay" value="<%= employee.getBirthDay()%>" required="required" class="nyuryoku"></td></tr>
 			<tr><th><span id="requisite">*</span>入社日</th><td><input type="date"name="hireDate" value="<%= employee.getHireDate()%>" required="required" class="nyuryoku"></td></tr>
