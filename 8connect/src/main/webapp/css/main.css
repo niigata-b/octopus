@@ -67,6 +67,8 @@ select{
 	
 }
 
+
+
 .back-button {
   display       : inline-block;
   border-radius : 13%;          /* 角丸       */
@@ -348,4 +350,19 @@ select{
   box-shadow    : none;        /* カーソル時の影消去 */
   color         : #DC143C;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
+}
+
+.logout-field h2{
+	margin-top: 300px;
+}
+
+.end {
+	position: absolute;
+	top: 300px;
+}
+
+message-delete {
+	position: absolute;
+	top: 100px;
+	right: 50px;
 }
