@@ -14,7 +14,7 @@
 	
 	<main>
 	
-		<img src="img/send.png" width="90px" height="90px" class="opinion-img">
+		<img src="img/send.png" width="80px" height="80px" class="opinion-img">
 		<div class="opinion-text">
 		<h2>意見箱</h2>
 		

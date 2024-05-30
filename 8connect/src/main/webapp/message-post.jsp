@@ -12,6 +12,7 @@
 		<%@ include file="header.jsp" %>
 	</header>
 	<main>
+	<h2>掲示板投稿</h2>
 	<div class="field">
 		<form action="message-post-check" method="post">
 			<span id="requisite">*</span>タイトル（50文字以内）<br>
@@ -21,7 +22,7 @@
 			<textarea name="messageText" cols="50" rows="4" required="required"></textarea><br>
 			
 	</div>
-			<input type="submit" value="投稿"><br>		
+			<input type="submit" value="投稿" class="normal-button"><br>		
 		</form>
 		
 		<form action="message-list" method="post">
