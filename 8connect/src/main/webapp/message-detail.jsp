@@ -23,7 +23,9 @@
 	   System.out.println(detailCode);%>
 	<% if (loginCode.equals(detailCode)) { %>
 		<form action="message-delete-check" method="POST">
-			<input type="submit" value="削除">
+		<div class="message-delete">
+			<input type="submit" value="削除" class="delete-button">
+		</div>
 		</form>
 	<% } %>
 		<% MessageBean message = (MessageBean) session.getAttribute("message"); %>
