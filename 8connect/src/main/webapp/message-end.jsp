@@ -10,10 +10,12 @@
 <body>
 <main>
 	<%@ include file="header.jsp"%>
+	<div class="end">
 	<h2>処理が完了しました</h2>
 	<form action="message-list" method="post">
-	<input type ="submit" value="掲示板へ戻る">
+	<input type ="submit" value="掲示板へ戻る" class="back-button">
 	</form>
+	</div>
 </main>
 </body>
 </html>

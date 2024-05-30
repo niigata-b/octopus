@@ -8,7 +8,6 @@
 <title>ログアウト画面</title>
 </head>
 <body>
-<main>
 <div clss="logout-field">
 	<h2><%= session.getAttribute("name") %>さんログアウトしますか?</h2>
 </div>
@@ -22,6 +21,5 @@
 	<input type ="submit" value="ログアウト" class="login-button">
 	</div>
 
-</main>
 </body>
 </html>

@@ -9,8 +9,9 @@
 </head>
 <body>
 	<main>
-	<div class="check">
-		<h2>-- 以下の内容で投稿しますか？ --</h2>
+	<h2>-- 以下の内容で投稿しますか？ --</h2>
+	<div class="message-delete-check">
+		
 	
 		タイトル：<%= session.getAttribute("title") %>
 		<br>
