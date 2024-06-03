@@ -602,3 +602,7 @@ message-delete {
 	top: 540px;
 	left: 415px;
 }
+
+.message-no-rireki {
+	font-size: 25px;
+}

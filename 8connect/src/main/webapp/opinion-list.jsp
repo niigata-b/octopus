@@ -22,7 +22,7 @@
 				%>
 				
 				<% if (sw) { %>
-					まだ履歴がありません。
+					<div class="message-no-rireki">まだ履歴がありません。</div>
 				<% } else { %>
 				
 					<%
